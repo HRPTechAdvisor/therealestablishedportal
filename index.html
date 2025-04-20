@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Minimalistic Web Design - Advanced Version</title>
+    <title>Advanced Minimalistic Web Design</title>
 
     <!-- Google Fonts for Modern Typography -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Roboto:wght@500&display=swap" rel="stylesheet">
@@ -161,6 +161,54 @@
             transform: translateY(0);
         }
 
+        /* New Content Section from hrptechadvisor */
+        .tech-advisor {
+            padding: 60px 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .tech-advisor h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .tech-advisor p {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+        }
+
+        .tech-advisor .service-card {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .service-card .card {
+            background-color: #fff;
+            padding: 30px;
+            width: 30%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .service-card .card p {
+            font-size: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -168,8 +216,8 @@
     <!-- Header Section -->
     <header>
         <div>
-            <h1>Minimalistic Web Design</h1>
-            <p>Elegant, modern web designs with smooth animations and accessibility</p>
+            <h1>Advanced Minimalistic Web Design</h1>
+            <p>Elegant, modern web designs with smooth animations, accessibility, and more</p>
             <button class="btn" onclick="scrollToSection('content')">Explore</button>
         </div>
     </header>
@@ -177,29 +225,49 @@
     <!-- Main Content Section -->
     <section id="content" class="reveal">
         <h2 class="section-title">Introduction</h2>
-        <p>This is a more advanced version of minimalistic web design that incorporates smooth animations, interactivity, and responsive layouts.</p>
+        <p>This version of minimalistic web design incorporates smooth animations, interactivity, accessibility features, and sections inspired by cutting-edge web design trends.</p>
     </section>
 
-    <!-- Content Grid Section -->
+    <!-- Content Showcase Section -->
     <section class="reveal">
         <h2 class="section-title">Content Showcase</h2>
         <div class="section-content">
             <div>
-                <h3>Section 1</h3>
-                <p>This section includes some placeholder text and a visually interesting layout.</p>
+                <h3>Responsive Design</h3>
+                <p>This section highlights the importance of responsive design in modern websites.</p>
                 <img src="https://via.placeholder.com/500x300" alt="Placeholder Image">
             </div>
             <div>
-                <h3>Section 2</h3>
-                <p>This section showcases another block of content with an image and description.</p>
+                <h3>Interactive Elements</h3>
+                <p>See how interactive elements, such as buttons and hover effects, can improve user experience.</p>
                 <img src="https://via.placeholder.com/500x300" alt="Placeholder Image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Advisor Section (Inspired by hrptechadvisor.github.io) -->
+    <section class="tech-advisor">
+        <h2>Our Services</h2>
+        <p>We offer a range of web development and technology consulting services to help you optimize your digital presence.</p>
+        <div class="service-card">
+            <div class="card">
+                <h3>Web Development</h3>
+                <p>We specialize in crafting modern, responsive websites tailored to your business needs.</p>
+            </div>
+            <div class="card">
+                <h3>Consulting</h3>
+                <p>Get expert advice on optimizing your website's user experience, performance, and accessibility.</p>
+            </div>
+            <div class="card">
+                <h3>SEO Optimization</h3>
+                <p>Our team ensures your website ranks high in search engines and drives more traffic.</p>
             </div>
         </div>
     </section>
 
     <!-- Footer Section -->
     <footer>
-        <p>&copy; 2025 Minimalistic Web Design. All rights reserved.</p>
+        <p>&copy; 2025 Advanced Web Design. All rights reserved.</p>
         <p><a href="#top">Back to Top</a></p>
     </footer>
 
