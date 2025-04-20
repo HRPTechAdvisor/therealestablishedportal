@@ -4,58 +4,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Portal App - Preview</title>
+  <title>The Portal - Premium Experience</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    /* Tailwind custom configuration */
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #111827; /* Dark Background */
-      color: #e5e7eb; /* Light Text */
+      font-family: 'Roboto', sans-serif;
+      background-color: #111827; /* Deep Charcoal */
+      color: #e5e7eb;
+      transition: background-color 0.3s ease-in-out;
     }
     .btn {
-      padding: 10px 20px;
-      background-color: #10b981; /* Neon Green */
+      padding: 12px 24px;
+      background-color: #10b981;
       color: white;
-      border-radius: 8px;
-      transition: background-color 0.3s;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
     }
     .btn:hover {
       background-color: #06b870;
+      transform: scale(1.05);
     }
-    .dark-accent {
-      color: #6ee7b7; /* Light Neon Green */
-    }
-    .graph {
-      background-color: #1f2937;
-      border-radius: 8px;
-      padding: 20px;
+    .btn:active {
+      transform: scale(0.95);
     }
     .dashboard-card {
-      background-color: #374151; /* Steel Gray */
-      border-radius: 10px;
+      background-color: #1f2937;
+      border-radius: 16px;
       padding: 20px;
       margin: 20px;
       color: #e5e7eb;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
     }
-    .header {
+    .dashboard-card:hover {
+      transform: translateY(-10px);
+    }
+    .neon-text {
+      color: #10b981;
+      text-shadow: 0 0 10px rgba(16, 185, 129, 0.8);
+    }
+    .graph-container {
+      margin-top: 30px;
+    }
+    .graph-title {
+      font-size: 1.25rem;
+      color: #6ee7b7;
+      margin-bottom: 10px;
+    }
+    .card-header {
       background-color: #111827;
       color: #10b981;
+      padding: 12px;
+      border-radius: 8px 8px 0 0;
+      font-size: 1.5rem;
+      font-weight: bold;
     }
-    .footer {
-      background-color: #1f2937;
-      color: #e5e7eb;
-      padding: 15px;
+    .card-footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #9ca3af;
+      margin-top: 20px;
+    }
+    /* For mobile responsiveness */
+    @media (max-width: 768px) {
+      .dashboard-card {
+        margin: 10px;
+      }
     }
   </style>
 </head>
 
-<body class="bg-gray-900 text-white">
+<body class="bg-gray-900">
 
   <!-- Header Section -->
-  <header class="header p-4 text-center">
-    <h1 class="text-4xl font-bold">The Portal</h1>
-    <p class="text-xl">Your All-in-One Life Management and Health Optimization Tool</p>
+  <header class="text-center p-8">
+    <h1 class="text-5xl font-extrabold text-white mb-2">The Portal</h1>
+    <p class="text-2xl text-gray-400">Your All-in-One Life Management & Health Optimization Tool</p>
   </header>
 
   <!-- Main Content -->
@@ -69,15 +96,14 @@
 
     <!-- Athlete Dashboard -->
     <div id="athlete-dashboard" class="dashboard-card hidden">
-      <h2 class="text-2xl mb-4">Athlete Dashboard</h2>
-      <div class="graph">
-        <h3 class="dark-accent text-xl">Performance Graph</h3>
+      <div class="card-header">Athlete Dashboard</div>
+      <div class="graph-container">
+        <div class="graph-title neon-text">Performance Graph</div>
         <canvas id="performanceGraph"></canvas>
       </div>
-      <div class="mt-4">
-        <h3 class="dark-accent text-xl">AI Meal Suggestions</h3>
-        <p class="mt-2">Based on your activity today, we recommend the following meals:</p>
-        <ul class="list-disc ml-6">
+      <div class="mt-8">
+        <div class="graph-title neon-text">AI Meal Suggestions</div>
+        <ul class="list-disc ml-6 text-gray-300">
           <li>Chicken Salad</li>
           <li>Protein Smoothie</li>
           <li>Quinoa & Veggies</li>
@@ -87,41 +113,39 @@
 
     <!-- Coach Dashboard -->
     <div id="coach-dashboard" class="dashboard-card hidden">
-      <h2 class="text-2xl mb-4">Coach Dashboard</h2>
-      <p>Review athlete performance and provide feedback:</p>
-      <div class="graph mt-4">
-        <h3 class="dark-accent text-xl">Athlete's Progress</h3>
+      <div class="card-header">Coach Dashboard</div>
+      <div class="graph-container">
+        <div class="graph-title neon-text">Athlete's Progress</div>
         <canvas id="athleteProgressGraph"></canvas>
       </div>
-      <div class="mt-4">
-        <h3 class="dark-accent text-xl">Messages</h3>
+      <div class="mt-8">
         <textarea rows="4" class="w-full bg-gray-800 text-white p-3 rounded-lg" placeholder="Leave feedback..."></textarea>
       </div>
     </div>
 
     <!-- Life Coach AI Box -->
-    <div class="mt-8 p-6 bg-gray-800 rounded-lg">
-      <h3 class="text-xl mb-4 dark-accent">Life Coach AI</h3>
+    <div class="mt-12 p-6 bg-gray-800 rounded-lg">
+      <div class="text-xl mb-4 neon-text">Life Coach AI</div>
       <div class="bg-gray-700 p-4 rounded-md">
-        <input type="text" id="ai-input" class="w-full bg-gray-900 text-white p-3 rounded-lg" placeholder="Ask your life coach...">
+        <input type="text" id="ai-input" class="w-full bg-gray-900 text-white p-3 rounded-lg mb-2" placeholder="Ask your life coach...">
         <button class="btn mt-2" onclick="interactWithAI()">Get Advice</button>
         <p id="ai-response" class="mt-4 text-gray-400"></p>
       </div>
     </div>
 
     <!-- Nutrition Scanner Simulation -->
-    <div class="mt-8 p-6 bg-gray-800 rounded-lg">
-      <h3 class="text-xl mb-4 dark-accent">Nutrition Scanner</h3>
-      <p>Scan a barcode or enter a food item to analyze nutrition.</p>
-      <input type="text" class="w-full bg-gray-900 text-white p-3 rounded-lg mt-2" placeholder="Enter food name...">
-      <button class="btn mt-2" onclick="scanNutrition()">Scan</button>
+    <div class="mt-12 p-6 bg-gray-800 rounded-lg">
+      <div class="text-xl mb-4 neon-text">Nutrition Scanner</div>
+      <input type="text" class="w-full bg-gray-900 text-white p-3 rounded-lg mb-4" placeholder="Enter food name...">
+      <button class="btn" onclick="scanNutrition()">Scan</button>
       <div id="nutrition-result" class="mt-4 text-gray-400"></div>
     </div>
+
   </main>
 
   <!-- Footer -->
-  <footer class="footer text-center mt-10">
-    <p>&copy; 2025 The Portal. All rights reserved.</p>
+  <footer class="card-footer">
+    <p>&copy; 2025 The Portal. All rights reserved. Designed for Maximum Engagement.</p>
   </footer>
 
   <!-- Script for Interactions -->
@@ -162,7 +186,7 @@
     // Initial dashboard view
     toggleView('athlete');  // Default to athlete view
 
-    // Example Graphs (you can use a graphing library like Chart.js for real graphs)
+    // Example Graphs with Chart.js
     var ctx = document.getElementById('performanceGraph').getContext('2d');
     var performanceGraph = new Chart(ctx, {
       type: 'line',
