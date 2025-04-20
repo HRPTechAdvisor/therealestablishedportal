@@ -1,0 +1,18 @@
+function LifeCoachAI() {
+  const reminders = [
+    "Drink water 💧",
+    "Stretch before training 🧘‍♂️",
+    "Visualize your goals 🧠"
+  ];
+
+  return (
+    <div className="bg-gray-900 p-4 rounded-lg shadow-lg mt-4">
+      <h2 className="text-neon-green text-xl mb-2">Life Coach AI</h2>
+      <ul className="list-disc list-inside">
+        {reminders.map((r, i) => <li key={i}>{r}</li>)}
+      </ul>
+    </div>
+  );
+}
+
+export default LifeCoachAI;
