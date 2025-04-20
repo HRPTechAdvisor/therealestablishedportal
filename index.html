@@ -42,8 +42,7 @@
 
     body {
       font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), 
-                  url('recordback.jpg') no-repeat center center fixed;
+      background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('recordback.jpg') no-repeat center center fixed;
       background-size: cover;
       color: var(--light);
       line-height: 1.6;
@@ -190,6 +189,13 @@
       margin-bottom: 2rem;
     }
 
+    #hero img {
+      width: 200px;
+      border-radius: 50%;
+      border: 3px solid var(--primary);
+      margin: 2rem 0;
+    }
+
     .cta-button {
       display: inline-block;
       background: var(--primary);
@@ -211,9 +217,6 @@
     /* Section Styles */
     section {
       padding: 6rem 0;
-      background: var(--section-bg);
-      border-radius: 12px;
-      margin: 2rem 0;
     }
 
     h2 {
@@ -239,6 +242,9 @@
     /* About Section */
     #about {
       text-align: left;
+      background: var(--section-bg);
+      border-radius: 12px;
+      padding: 4rem 2rem;
     }
 
     #about p {
@@ -302,7 +308,8 @@
     }
 
     .timeline-content {
-      background: var(--section-bg);
+      background:ევ
+
       padding: 1.5rem;
       border-radius: 8px;
       border: 1px solid var(--primary);
@@ -356,7 +363,7 @@
     }
 
     .project-image {
-      width: 50%;
+      width: 40%;
       height: auto;
       border-radius: 8px;
       margin: 0 2rem;
@@ -410,6 +417,10 @@
     }
 
     /* Music Section */
+    #music {
+      text-align: center;
+    }
+
     #music iframe {
       margin: 2rem auto;
       border: 2px solid var(--primary);
@@ -544,4 +555,316 @@
         gap: 1rem;
       }
     }
-  
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <ul>
+      <li><a href="#hero" class="nav-link active">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#experience" class="nav-link">Experience</a></li>
+      <li><a href="#work" class="nav-link">Work</a></li>
+      <li><a href="#music" class="nav-link">Music</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <button class="hamburger" aria-label="Toggle Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav class="mobile-nav">
+    <a href="#hero" class="nav-link">Home</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#experience" class="nav-link">Experience</a>
+    <a href="#work" class="nav-link">Work</a>
+    <a href="#music" class="nav-link">Music</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </nav>
+
+  <!-- Social Sidebar -->
+  <div class="social-sidebar">
+    <a href="https://www.twitch.tv/djtrippiepea" target="_blank"><i class="fab fa-twitch"></i></a>
+    <a href="https://youtube.com/@djtrippiepea" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://facebook.com/therealestablishedportal" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://instagram.com/therealestablishedportal" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://linkedin.com/in/hrptechadvisor" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://x.com/DJTrippiePea" target="_blank"><i class="fab fa-x-twitter"></i></a>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="container" data-aos="fade-up">
+      <h1>Sean J. Smith DJTP</h1>
+      <h2>I’m a <span id="typed-text"></span></h2>
+      <p>Where tech meets grit—crafting innovative solutions and compelling stories that drive impact.</p>
+      <img src="me.jpg" alt="Sean J. Smith" data-aos="zoom-in">
+      <a href="#contact" class="cta-button" data-aos="fade-up" data-aos-delay="200">Hire Me Today</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container" data-aos="fade-up">
+      <h2>ℹ️ About Me</h2>
+      <p>Sean J. Smith DJTP, founder of The Real Established Portal. With an Associate’s in Computer Science from Full Sail University and a PhD in progress, I combine technical expertise with a passion for innovation. My self-driven approach has led to a diverse portfolio of apps, blockchain projects, and creative ventures—ready to tackle your next challenge.</p>
+      <p>Currently enrolled in Harvard’s CS50 program to sharpen my skills. My work blends technical precision with creative storytelling, delivering solutions that resonate—all achieved with resourcefulness and zero budget.</p>
+      <div class="image-grid" data-aos="fade-up" data-aos-delay="100">
+        <img src="RPrealestablished.jpg" alt="Real Established Logo">
+        <img src="Repdiamondsreal.jpg" alt="Diamonds Real Image">
+        <img src="minrep.jpg" alt="Minimal REP Image">
+        <img src="repdiamondreal.jpg" alt="REP Diamond Real Image">
+      </div>
+      <a href="https://linkedin.com/in/hrptechadvisor" target="_blank" class="cta-button" data-aos="fade-up" data-aos-delay="200">View My LinkedIn</a>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="container" data-aos="fade-up">
+      <h2>📚 Experience & Education</h2>
+      <div class="timeline">
+        <div class="timeline-item" data-aos="fade-right">
+          <div class="timeline-content">
+            <h3>Associate’s in Computer Science</h3>
+            <p>Full Sail University | 2023</p>
+            <p>Graduated with a focus on software development, app design, and blockchain technologies.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+          <div class="timeline-content">
+            <h3>PhD in Progress</h3>
+            <p>Full Sail University | Present</p>
+            <p>Pursuing advanced research in computer science and AI applications.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
+          <div class="timeline-content">
+            <h3>Harvard CS50</h3>
+            <p>Online Program | Present</p>
+            <p>Enrolled in CS50 to enhance skills in algorithms and web development.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="container" data-aos="fade-up">
+      <h2>🛠️ My Work</h2>
+      <div class="project-grid">
+        <div class="project-card" data-aos="fade-up">
+          <img src="portal.jpg" alt="The Portal" class="project-image">
+          <div class="project-content">
+            <h3>The Portal</h3>
+            <p>An all-in-one app for health tracking, smart shopping, life coaching, and AI-driven insights. Currently in wireframe stage using FigJam.</p>
+            <div class="tech-badges">
+              <span class="tech-badge">Swift</span>
+              <span class="tech-badge">Kotlin</span>
+              <span class="tech-badge">ML</span>
+              <span class="tech-badge">FigJam</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/hrptechadvisor/portal" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+          <img src="nutrition.jpg" alt="Nutrition Tracker" class="project-image">
+          <div class="project-content">
+            <h3>Nutrition Tracker</h3>
+            <p>An app to track and manage nutrition, integrating features like food scanning and personalized health recommendations.</p>
+            <div class="tech-badges">
+              <span class="tech-badge">Flutter</span>
+              <span class="tech-badge">Firebase</span>
+              <span class="tech-badge">AI</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/hrptechadvisor/nutrition" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+          <img src="wellness.jpg" alt="WellnessPro App" class="project-image">
+          <div class="project-content">
+            <h3>WellnessPro App</h3>
+            <p>Comprehensive wellness platform for PHP providers and fitness coaches featuring AI-driven health insights.</p>
+            <div class="tech-badges">
+              <span class="tech-badge">Flutter</span>
+              <span class="tech-badge">Firebase</span>
+              <span class="tech-badge">AI</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/hrptechadvisor/wellness" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+          <img src="rentease.jpg" alt="RentEase Platform" class="project-image">
+          <div class="project-content">
+            <h3>RentEase Platform</h3>
+            <p>Blockchain-based property management system with smart contracts and automated payments.</p>
+            <div class="tech-badges">
+              <span class="tech-badge">React</span>
+              <span class="tech-badge">Solidity</span>
+              <span class="tech-badge">Node.js</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/hrptechadvisor/rentease" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+          <img src="calculator.jpg" alt="Calculator Application" class="project-image">
+          <div class="project-content">
+            <h3>Calculator Application</h3>
+            <p>A calculator app built with a button factory, processor singleton, and exception handling using the Shunting Yard Algorithm.</p>
+            <div class="tech-badges">
+              <span class="tech-badge">C++</span>
+              <span class="tech-badge">wxWidgets</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/hrptechadvisor/calculator" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card" data-aos="fade-up" data-aos-delay="500">
+          <img src="android.jpg" alt="Android Studio Project" class="project-image">
+          <div class="project-content">
+            <h3>Android Studio Project</h3>
+            <p>An Android app with rounded corners, layout refinement, and accessibility improvements.</p>
+            <div class="tech-badges">
+              <span class="tech-badge">Java</span>
+              <span class="tech-badge">Android Studio</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/hrptechadvisor/android" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Music Section -->
+    <section id="music" class="container" data-aos="fade-up">
+      <h2>🎵 Featured Music</h2>
+      <p>Listen to original tracks produced by Sean J. Smith DJTP:</p>
+      <iframe
+        src="https://www.bandlab.com/embed/?id=064f87ed-b119-f011-aaa7-0022484892d6"
+        sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+        allowfullscreen
+        data-aos="fade-up"
+        data-aos-delay="100">
+      </iframe>
+      <p>Also check out more music on YouTube:</p>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/jup9oaq7CV0?si=9rO0aKRbSs612dcF"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+        data-aos="fade-up"
+        data-aos-delay="200">
+      </iframe>
+      <a href="https://www.twitch.tv/djtrippiepea" target="_blank" class="cta-button" data-aos="fade-up" data-aos-delay="300">
+        Join Me Live on Twitch
+      </a>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container" data-aos="fade-up">
+      <h2>📬 Get in Touch</h2>
+      <p>Ready to collaborate? Send me a message or reach out via socials.</p>
+      <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST" data-aos="fade-up" data-aos-delay="100">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit" class="cta-button">Send Message</button>
+      </form>
+      <ul class="contact-links" data-aos="fade-up" data-aos-delay="200">
+        <li>Phone: <a href="tel:2248289966">224-828-9966</a></li>
+        <li>Email: <a href="mailto:sjsmith5@student.fullsail.edu">sjsmith5@student.fullsail.edu</a></li>
+        <li>Personal Email: <a href="mailto:djtrippiepea@gmail.com">djtrippiepea@gmail.com</a></li>
+        <li>Facebook: <a href="https://facebook.com/therealestablishedportal" target="_blank">therealestablishedportal</a></li>
+        <li>Instagram: <a href="https://instagram.com/therealestablishedportal" target="_blank">therealestablishedportal</a></li>
+        <li>LinkedIn: <a href="https://linkedin.com/in/hrptechadvisor" target="_blank">hrptechadvisor</a></li>
+        <li>X: <a href="https://x.com/DJTrippiePea" target="_blank">DJTrippiePea</a></li>
+        <li>YouTube: <a href="https://youtube.com/@djtrippiepea" target="_blank">djtrippiepea</a></li>
+        <li>Twitch: <a href="https://www.twitch.tv/djtrippiepea" target="_blank">djtrippiepea</a></li>
+      </ul>
+      <a href="#faq" class="cta-button" data-aos="fade-up" data-aos-delay="300">View FAQ</a>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p><a href="https://hrptechadvisor.github.io">The Real Established Portal</a></p>
+    <p>© 2025 The Real Established Portal. All rights reserved.</p>
+    <p>Designed & Developed by Sean J. Smith DJTP</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Typed.js
+      new Typed('#typed-text', {
+        strings: ['Developer', 'Innovator', 'Creator', 'Technologist'],
+        typeSpeed: 50,
+        backSpeed: 30,
+        loop: true,
+        backDelay: 1500
+      });
+
+      // AOS
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true
+      });
+
+      // Hamburger Menu
+      const hamburger = document.querySelector('.hamburger');
+      const mobileNav = document.querySelector('.mobile-nav');
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        mobileNav.classList.toggle('active');
+      });
+
+      // Smooth Scrolling
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+          mobileNav.classList.remove('active');
+          hamburger.classList.remove('open');
+        });
+      });
+
+      // Active Nav Link
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.nav-link');
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 100;
+          if (window.pageYOffset >= sectionTop) {
+            current = section.getAttribute('id');
+          }
+        });
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href').slice(1) === current) {
+            link.classList.add('active');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
