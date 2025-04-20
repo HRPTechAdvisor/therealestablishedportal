@@ -17,91 +17,92 @@
       height: 400px;
       margin: auto;
     }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 <body>
-  <h1>Stock Prediction Model</h1>
-  <p>Enter a stock symbol to predict future prices using a simple moving average model:</p>
+  <h1>Stock Price Prediction Using Linear Regression</h1>
+  <p>Enter stock data points and predict the next price:</p>
   
-  <!-- Input for Stock Symbol -->
-  <input type="text" id="stock-symbol" placeholder="Enter Stock Symbol (e.g., AAPL)" />
-  <button onclick="fetchStockData()">Get Prediction</button>
+  <!-- Input for Stock Data (example data: [10, 12, 15, 16, 18]) -->
+  <input type="text" id="stock-data" placeholder="Enter stock prices separated by commas (e.g., 10,12,15,16,18)" />
+  <button onclick="predictStockPrice()">Predict</button>
   
   <div id="chart-container">
     <canvas id="stock-chart"></canvas>
   </div>
 
   <script>
-    const apiKey = 'YOUR_ALPHA_VANTAGE_API_KEY';  // Replace with your API Key from Alpha Vantage
-    const apiUrl = 'https://www.alphavantage.co/query';
-
-    let chart;
-
-    function fetchStockData() {
-      const symbol = document.getElementById('stock-symbol').value;
-
-      if (symbol) {
-        fetch(`${apiUrl}?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=${apiKey}`)
-          .then(response => response.json())
-          .then(data => {
-            const timeSeries = data['Time Series (Daily)'];
-            if (timeSeries) {
-              const dates = Object.keys(timeSeries);
-              const closingPrices = dates.map(date => parseFloat(timeSeries[date]['4. close']));
-
-              // Calculate simple moving average for prediction (for simplicity)
-              const sma = calculateSMA(closingPrices, 5); // 5-day moving average
-
-              // Prepare data for the chart
-              const chartData = {
-                labels: dates.slice(0, closingPrices.length),
-                datasets: [{
-                  label: 'Stock Price (Closing)',
-                  data: closingPrices,
-                  borderColor: 'rgba(75, 192, 192, 1)',
-                  fill: false
-                }, {
-                  label: '5-Day Moving Average',
-                  data: sma,
-                  borderColor: 'rgba(153, 102, 255, 1)',
-                  fill: false
-                }]
-              };
-
-              // Render the chart
-              renderChart(chartData);
-            } else {
-              alert('Stock data not found or API limit exceeded.');
-            }
-          })
-          .catch(error => console.error('Error fetching stock data:', error));
-      }
+    function parseData(data) {
+      return data.split(',').map(val => parseFloat(val.trim()));
     }
 
-    function calculateSMA(data, period) {
-      const sma = [];
-      for (let i = period - 1; i < data.length; i++) {
-        const avg = data.slice(i - (period - 1), i + 1).reduce((acc, val) => acc + val, 0) / period;
-        sma.push(avg);
-      }
-      return sma;
+    function linearRegression(x, y) {
+      const n = x.length;
+      const sumX = x.reduce((a, b) => a + b, 0);
+      const sumY = y.reduce((a, b) => a + b, 0);
+      const sumXY = x.reduce((a, b, i) => a + b * y[i], 0);
+      const sumX2 = x.reduce((a, b) => a + b * b, 0);
+
+      const slope = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
+      const intercept = (sumY - slope * sumX) / n;
+
+      return { slope, intercept };
     }
 
-    function renderChart(data) {
-      const ctx = document.getElementById('stock-chart').getContext('2d');
-      if (chart) chart.destroy(); // Destroy previous chart if exists
-      chart = new Chart(ctx, {
-        type: 'line',
-        data: data,
-        options: {
-          responsive: true,
-          plugins: {
-            title: {
-              display: true,
-              text: 'Stock Price Prediction (with 5-Day Moving Average)'
+    function predictStockPrice() {
+      const rawData = document.getElementById('stock-data').value;
+
+      if (rawData) {
+        const stockData = parseData(rawData);
+        const x = stockData.map((_, index) => index + 1);  // [1, 2, 3, ..., N]
+        const y = stockData;  // Stock prices
+
+        // Perform linear regression
+        const { slope, intercept } = linearRegression(x, y);
+
+        // Predict the next value (extrapolation)
+        const nextX = x.length + 1;
+        const nextPrice = slope * nextX + intercept;
+
+        alert(`Predicted next price: $${nextPrice.toFixed(2)}`);
+
+        // Create chart with stock data and prediction
+        const chartData = {
+          labels: x,
+          datasets: [{
+            label: 'Stock Price',
+            data: y,
+            borderColor: 'rgba(75, 192, 192, 1)',
+            fill: false
+          }]
+        };
+
+        const ctx = document.getElementById('stock-chart').getContext('2d');
+        const chart = new Chart(ctx, {
+          type: 'line',
+          data: chartData,
+          options: {
+            responsive: true,
+            plugins: {
+              title: {
+                display: true,
+                text: 'Stock Price Prediction Using Linear Regression'
+              }
             }
           }
         });
+
+        // Add the predicted point to the chart
+        chartData.labels.push(nextX);
+        chartData.datasets[0].data.push(nextPrice);
+
+        chart.update();
+      }
     }
   </script>
 </body>
