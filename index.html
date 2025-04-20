@@ -6,7 +6,7 @@
   <meta property="og:title" content="Sean J. Smith DJTP | Visionary Technologist">
   <meta property="og:description" content="Where tech meets grit—crafting innovative solutions and compelling stories that drive impact.">
   <meta property="og:image" content="RPrealestablished.jpg">
-  <meta property="og:url" content="https://therealestablishedportal.github.io">
+  <meta property="og:url" content="https://hrptechadvisor.github.io">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Sean J. Smith DJTP | Visionary Technologist">
@@ -15,6 +15,8 @@
   <meta name="keywords" content="Sean J. Smith DJTP, tech portfolio, app development, blockchain, AI, cryptocurrency, software engineering, Full Sail University">
   <meta name="author" content="Sean J. Smith DJTP">
   <title>🚀 Sean J. Smith DJTP | Visionary Technologist</title>
+
+  <!-- External Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.20.15/babel.min.js"></script>
@@ -24,9 +26,12 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
+
 </head>
-<body>
+<body class="bg-gray-900 text-white">
+
   <div id="root"></div>
+
   <script type="text/babel">
     const { useEffect, useRef } = React;
 
@@ -45,12 +50,12 @@
 
       return (
         <nav ref={navRef} className="fixed top-0 w-full bg-black bg-opacity-90 z-50 py-4 px-6 flex justify-center items-center">
-          <div className="flex space-x-4 flex-wrap justify-center">
-            {["hero", "skills", "about", "ventures", "projects", "testimonials", "contact", "education", "experience", "blog"].map((section) => (
+          <div className="flex space-x-6 flex-wrap justify-center">
+            {["hero", "skills", "about", "ventures", "projects", "testimonials", "contact"].map((section) => (
               <a
                 key={section}
                 href={`#${section}`}
-                className="text-cyan-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition transform hover:scale-105"
+                className="text-cyan-400 hover:text-white px-3 py-2 rounded-md text-lg font-medium transition transform hover:scale-105"
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </a>
@@ -60,7 +65,7 @@
       );
     };
 
-    // Hero Component with 3D Canvas
+    // Hero Section with 3D Canvas
     const Hero = () => {
       const canvasRef = useRef(null);
 
@@ -111,7 +116,7 @@
       );
     };
 
-    // Skills Component
+    // Skills Section
     const Skills = () => {
       return (
         <section id="skills" className="py-20 bg-gray-900">
@@ -121,26 +126,20 @@
               <h3 className="text-2xl font-semibold text-yellow-400 mb-4">Core Competencies</h3>
               <ul className="space-y-2 text-gray-300">
                 <li><strong>App Design & Development:</strong> Building user-friendly apps (e.g., The Portal, Nutrition Tracker)</li>
-                <li><strong>Project Management:</strong> Creating roadmaps and timelines for scalable solutions</li>
-                <li><strong>Cryptocurrency & Blockchain:</strong> Planning Portal Eco Coin (PEC) and smart contract development</li>
-                <li><strong>AI & Education:</strong> Proposing AI integration for academic integrity and classroom assistance</li>
-                <li><strong>Software Development & Testing:</strong> Implementing Shunting Yard Algorithm, unit testing, and test-driven development (TDD)</li>
-                <li><strong>UI/UX Design:</strong> Enhancing accessibility and usability for diverse audiences</li>
-                <li><strong>Cloud Solutions:</strong> Experience with AWS, Azure, and Google Cloud for app deployment</li>
-                <li><strong>Cybersecurity:</strong> Integrating security practices into app development and blockchain protocols</li>
+                <li><strong>Project Management:</strong> Creating roadmaps and timelines</li>
+                <li><strong>Cryptocurrency & Blockchain:</strong> Planning Portal Eco Coin</li>
+                <li><strong>AI & Education:</strong> Proposing AI integration for academic integrity</li>
+                <li><strong>Software Development & Testing:</strong> Using Shunting Yard Algorithm, unit testing</li>
+                <li><strong>UI/UX Design:</strong> Enhancing accessibility and usability</li>
               </ul>
             </div>
             <div>
               <h3 className="text-2xl font-semibold text-yellow-400 mb-4">Tools & Technologies</h3>
               <ul className="space-y-2 text-gray-300">
-                <li><strong>Languages:</strong> C++, Python, Java, JavaScript, GDScript, Solidity</li>
-                <li><strong>Frameworks:</strong> wxWidgets, Android Studio, Flutter, React, Next.js</li>
-                <li><strong>Software:</strong> Visual Studio, VS Code, GitHub, SharePoint, Xilinx ISE, Figma, Blender, Unity</li>
-                <li><strong>Platforms:</strong> Full Sail University, Medium, LinkedIn, AWS, Google Cloud</li>
-                <li><strong>Design Tools:</strong> Figma, Adobe XD, Sketch</li>
-                <li><strong>Version Control:</strong> Git, GitHub, GitLab, Bitbucket</li>
-                <li><strong>Databases:</strong> MySQL, MongoDB, PostgreSQL, Firebase</li>
-                <li><strong>Blockchain Technologies:</strong> Ethereum, Solana, NFTs, Smart Contracts</li>
+                <li><strong>Languages:</strong> C++, Python, Java, JavaScript, GDScript</li>
+                <li><strong>Frameworks:</strong> wxWidgets, Android Studio, Flutter, React</li>
+                <li><strong>Software:</strong> Visual Studio, VS Code, GitHub, SharePoint, Xilinx ISE, Figma</li>
+                <li><strong>Platforms:</strong> Full Sail University, Medium, LinkedIn, AWS Basics</li>
               </ul>
             </div>
           </div>
@@ -148,34 +147,86 @@
       );
     };
 
-    // About Component
+    // About Section
     const About = () => {
       return (
         <section id="about" className="py-20 bg-gradient-to-b from-gray-900 to-black text-center">
           <h2 className="text-4xl font-bold text-cyan-400 mb-12">ℹ️ Who I Am</h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            I am Sean J. Smith DJTP, founder of The Real Established Portal. With an Associate’s in Computer Science from Full Sail University and a PhD in progress, I am passionate about leveraging technology to create impactful solutions. From app development and AI integration to blockchain and educational technologies, I strive to bring visionary ideas to life.
+            Sean J. Smith DJTP, founder of The Real Established Portal. With an Associate’s in Computer Science from Full Sail University and a PhD in progress, I leverage technology to shape impactful solutions across industries. My tech-driven journey includes work in AI, blockchain, app development, and educational tech integration.
           </p>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            My goal is to continue crafting technologies that improve lives—whether it’s through apps like *The Portal*, blockchain innovations, or smart contract solutions. I’m always looking for the next opportunity to innovate and collaborate on projects that matter.
-          </p>
+          <a
+            href="#contact"
+            className="inline-block bg-cyan-400 text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-pink-500 hover:text-white transition transform hover:scale-105 shadow-lg shadow-cyan-400/50"
+          >
+            Let's Connect
+          </a>
         </section>
       );
     };
 
-    // Main App Component
+    // Ventures Section
+    const Ventures = () => {
+      return (
+        <section id="ventures" className="py-20 bg-gray-800 text-center">
+          <h2 className="text-4xl font-bold text-cyan-400 mb-12">🌐 Ventures & Projects</h2>
+          <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-black p-8 rounded-lg shadow-lg">
+              <h3 className="text-2xl font-bold text-yellow-400 mb-4">The Portal</h3>
+              <p className="text-gray-300 mb-4">
+                A life management app combining health tracking, smart shopping, and AI-driven coaching to optimize daily life.
+              </p>
+              <a href="https://github.com/SeanJSmith/Portal" target="_blank" className="text-cyan-400 hover:text-white">View on GitHub</a>
+            </div>
+            <div className="bg-black p-8 rounded-lg shadow-lg">
+              <h3 className="text-2xl font-bold text-yellow-400 mb-4">Nutrition Tracker</h3>
+              <p className="text-gray-300 mb-4">
+                An app focused on tracking nutrition and offering insights for healthier living.
+              </p>
+              <a href="https://github.com/SeanJSmith/NutritionTracker" target="_blank" className="text-cyan-400 hover:text-white">View on GitHub</a>
+            </div>
+            <div className="bg-black p-8 rounded-lg shadow-lg">
+              <h3 className="text-2xl font-bold text-yellow-400 mb-4">Portal Eco Coin</h3>
+              <p className="text-gray-300 mb-4">
+                A cryptocurrency project for sustainable digital transactions, focusing on eco-conscious solutions.
+              </p>
+              <a href="https://github.com/SeanJSmith/PortalEcoCoin" target="_blank" className="text-cyan-400 hover:text-white">View on GitHub</a>
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    // Contact Section
+    const Contact = () => {
+      return (
+        <section id="contact" className="py-20 bg-gradient-to-b from-black to-gray-900 text-center">
+          <h2 className="text-4xl font-bold text-cyan-400 mb-12">📬 Get In Touch</h2>
+          <p className="text-xl text-gray-300 mb-8">Let's collaborate! Reach out to discuss innovative ideas, solutions, or opportunities.</p>
+          <a
+            href="mailto:seanj@realestablished.com"
+            className="inline-block bg-cyan-400 text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-pink-500 hover:text-white transition transform hover:scale-105 shadow-lg shadow-cyan-400/50"
+          >
+            Email Me
+          </a>
+        </section>
+      );
+    };
+
+    // Main App
     const App = () => {
       return (
-        <>
+        <div>
           <Navigation />
           <Hero />
           <Skills />
           <About />
-        </>
+          <Ventures />
+          <Contact />
+        </div>
       );
     };
 
-    // Render the app
     ReactDOM.render(<App />, document.getElementById("root"));
   </script>
 </body>
