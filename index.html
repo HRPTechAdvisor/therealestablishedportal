@@ -1,144 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Fan page for Summer Bellessa, Entrepreneur, Actress, and Creative Force">
-    <title>Summer Bellessa Fan Page</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            background-color: #0a0a0a;
-            color: #ffffff;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .main-container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 2rem;
-        }
-
-        .project-card {
-            background: linear-gradient(45deg, #6ee7b7, #3b82f6);
-            border-radius: 15px;
-            padding: 2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: scale(1.05);
-        }
-
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            margin: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .social-icon:hover {
-            background-color: #3b82f6;
-        }
-
-        .header {
-            font-size: 2.5rem;
-            font-weight: bold;
-            text-align: center;
-            color: #fbbf24;
-            text-transform: uppercase;
-        }
-
-        .sub-header {
-            font-size: 1.5rem;
-            margin-top: 1rem;
-            text-align: center;
-            color: #60a5fa;
-        }
-
-        .project-title {
-            font-size: 1.25rem;
-            color: #fbbf24;
-            font-weight: bold;
-        }
-
-        .project-description {
-            color: #e5e7eb;
-        }
-
-        .button {
-            background-color: #3b82f6;
-            padding: 10px 20px;
-            border-radius: 5px;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            text-align: center;
-            margin-top: 10px;
-            display: inline-block;
-            transition: background-color 0.3s;
-        }
-
-        .button:hover {
-            background-color: #2563eb;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock Prediction</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      padding: 20px;
+    }
+    #chart-container {
+      width: 80%;
+      height: 400px;
+      margin: auto;
+    }
+  </style>
 </head>
-
 <body>
-    <div class="main-container">
-        <!-- Header -->
-        <div class="header">Welcome to Summer Bellessa's Fan Page</div>
-        <div class="sub-header">Fashion, Film, & Creativity at its Finest</div>
+  <h1>Stock Prediction Model</h1>
+  <p>Enter a stock symbol to predict future prices based on a simple moving average:</p>
+  
+  <!-- Input for Stock Symbol -->
+  <input type="text" id="stock-symbol" placeholder="Enter Stock Symbol (e.g., AAPL)" />
+  <button onclick="fetchStockData()">Get Prediction</button>
+  
+  <div id="chart-container">
+    <canvas id="stock-chart"></canvas>
+  </div>
 
-        <!-- Social Links -->
-        <div class="flex justify-center mt-8">
-            <a href="https://www.instagram.com/summerbellessa/" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" class="social-icon" alt="Instagram">
-            </a>
-            <a href="https://x.com/summerbellessa" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Twitter_logo_2012.png" class="social-icon" alt="Twitter">
-            </a>
-            <a href="https://www.pinterest.com/summer_bellessa/" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Pinterest_logo.png" class="social-icon" alt="Pinterest">
-            </a>
-        </div>
+  <script>
+    const apiKey = 'YOUR_ALPHA_VANTAGE_API_KEY';  // Replace with your API Key from Alpha Vantage
+    const apiUrl = 'https://www.alphavantage.co/query';
 
-        <!-- Projects Section -->
-        <div class="mt-12">
-            <div class="project-card">
-                <div class="project-title">Amber Alert (2024)</div>
-                <div class="project-description">A gripping thriller about an Amber Alert and the ethical dilemmas that follow. Summer co-produced and co-directed the project, making a mark in the thriller genre.</div>
-                <a href="https://www.ksl.com/article/51150375/filmmakers-with-utah-roots-talk-about-their-new-film-amber-alert" class="button mt-4" target="_blank">Learn More</a>
-            </div>
+    let chart;
 
-            <div class="project-card mt-8">
-                <div class="project-title">Funny Thing About Love</div>
-                <div class="project-description">A romantic comedy starring Summer Bellessa that delves into the intricacies of love and relationships.</div>
-                <a href="https://m.facebook.com/story.php?id=108510814617620&story_fbid=108569534611748" class="button mt-4" target="_blank">Watch Trailer</a>
-            </div>
+    function fetchStockData() {
+      const symbol = document.getElementById('stock-symbol').value;
 
-            <div class="project-card mt-8">
-                <div class="project-title">The Girls With Glasses Show</div>
-                <div class="project-description">A YouTube series co-hosted by Summer, offering a blend of lifestyle, fashion, and candid discussions.</div>
-                <a href="https://www.youtube.com/channel/UCyldET_BiRzS3uE6Hsk_g" class="button mt-4" target="_blank">Watch Show</a>
-            </div>
+      if (symbol) {
+        fetch(`${apiUrl}?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=${apiKey}`)
+          .then(response => response.json())
+          .then(data => {
+            const timeSeries = data['Time Series (Daily)'];
+            if (timeSeries) {
+              const dates = Object.keys(timeSeries);
+              const closingPrices = dates.map(date => parseFloat(timeSeries[date]['4. close']));
 
-            <div class="project-card mt-8">
-                <div class="project-title">Eliza Magazine</div>
-                <div class="project-description">Summer founded this fashion and lifestyle publication, empowering women to maintain high standards in both fashion and life.</div>
-                <a href="https://ldswomenproject.com/interview/a-model-of-many-talents/?utm_source=chatgpt.com" class="button mt-4" target="_blank">Explore Magazine</a>
-            </div>
-        </div>
+              // Calculate simple moving average for prediction (for simplicity)
+              const sma = calculateSMA(closingPrices, 5); // 5-day moving average
 
-        <!-- Footer -->
-        <div class="text-center mt-16">
-            <p class="text-gray-500">© 2025 Summer Bellessa Fan Page. All Rights Reserved.</p>
-        </div>
-    </div>
+              // Prepare data for the chart
+              const chartData = {
+                labels: dates.slice(0, closingPrices.length),
+                datasets: [{
+                  label: 'Stock Price (Closing)',
+                  data: closingPrices,
+                  borderColor: 'rgba(75, 192, 192, 1)',
+                  fill: false
+                }, {
+                  label: '5-Day Moving Average',
+                  data: sma,
+                  borderColor: 'rgba(153, 102, 255, 1)',
+                  fill: false
+                }]
+              };
+
+              // Render the chart
+              renderChart(chartData);
+            } else {
+              alert('Stock data not found or API limit exceeded.');
+            }
+          })
+          .catch(error => console.error('Error fetching stock data:', error));
+      }
+    }
+
+    function calculateSMA(data, period) {
+      const sma = [];
+      for (let i = period - 1; i < data.length; i++) {
+        const avg = data.slice(i - (period - 1), i + 1).reduce((acc, val) => acc + val, 0) / period;
+        sma.push(avg);
+      }
+      return sma;
+    }
+
+    function renderChart(data) {
+      const ctx = document.getElementById('stock-chart').getContext('2d');
+      if (chart) chart.destroy(); // Destroy previous chart if exists
+      chart = new Chart(ctx, {
+        type: 'line',
+        data: data,
+        options: {
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: 'Stock Price Prediction (with 5-Day Moving Average)'
+            }
+          }
+        });
+    }
+  </script>
 </body>
-
 </html>
