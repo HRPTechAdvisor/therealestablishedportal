@@ -1,12 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Lock In: The Portal</title>
-  </head>
-  <body class="bg-steel-gray text-white">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Portal App - Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Tailwind custom configuration */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #111827; /* Dark Background */
+      color: #e5e7eb; /* Light Text */
+    }
+    .btn {
+      padding: 10px 20px;
+      background-color: #10b981; /* Neon Green */
+      color: white;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #06b870;
+    }
+    .dark-accent {
+      color: #6ee7b7; /* Light Neon Green */
+    }
+    .graph {
+      background-color: #1f2937;
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .dashboard-card {
+      background-color: #374151; /* Steel Gray */
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px;
+      color: #e5e7eb;
+    }
+    .header {
+      background-color: #111827;
+      color: #10b981;
+    }
+    .footer {
+      background-color: #1f2937;
+      color: #e5e7eb;
+      padding: 15px;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-white">
+
+  <!-- Header Section -->
+  <header class="header p-4 text-center">
+    <h1 class="text-4xl font-bold">The Portal</h1>
+    <p class="text-xl">Your All-in-One Life Management and Health Optimization Tool</p>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto p-4">
+
+    <!-- Dashboard Toggle -->
+    <div class="flex justify-center mb-6">
+      <button class="btn mx-2" onclick="toggleView('athlete')">Athlete View</button>
+      <button class="btn mx-2" onclick="toggleView('coach')">Coach View</button>
+    </div>
+
+    <!-- Athlete Dashboard -->
+    <div id="athlete-dashboard" class="dashboard-card hidden">
+      <h2 class="text-2xl mb-4">Athlete Dashboard</h2>
+      <div class="graph">
+        <h3 class="dark-accent text-xl">Performance Graph</h3>
+        <canvas id="performanceGraph"></canvas>
+      </div>
+      <div class="mt-4">
+        <h3 class="dark-accent text-xl">AI Meal Suggestions</h3>
+        <p class="mt-2">Based on your activity today, we recommend the following meals:</p>
+        <ul class="list-disc ml-6">
+          <li>Chicken Salad</li>
+          <li>Protein Smoothie</li>
+          <li>Quinoa & Veggies</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Coach Dashboard -->
+    <div id="coach-dashboard" class="dashboard-card hidden">
+      <h2 class="text-2xl mb-4">Coach Dashboard</h2>
+      <p>Review athlete performance and provide feedback:</p>
+      <div class="graph mt-4">
+        <h3 class="dark-accent text-xl">Athlete's Progress</h3>
+        <canvas id="athleteProgressGraph"></canvas>
+      </div>
+      <div class="mt-4">
+        <h3 class="dark-accent text-xl">Messages</h3>
+        <textarea rows="4" class="w-full bg-gray-800 text-white p-3 rounded-lg" placeholder="Leave feedback..."></textarea>
+      </div>
+    </div>
+
+    <!-- Life Coach AI Box -->
+    <div class="mt-8 p-6 bg-gray-800 rounded-lg">
+      <h3 class="text-xl mb-4 dark-accent">Life Coach AI</h3>
+      <div class="bg-gray-700 p-4 rounded-md">
+        <input type="text" id="ai-input" class="w-full bg-gray-900 text-white p-3 rounded-lg" placeholder="Ask your life coach...">
+        <button class="btn mt-2" onclick="interactWithAI()">Get Advice</button>
+        <p id="ai-response" class="mt-4 text-gray-400"></p>
+      </div>
+    </div>
+
+    <!-- Nutrition Scanner Simulation -->
+    <div class="mt-8 p-6 bg-gray-800 rounded-lg">
+      <h3 class="text-xl mb-4 dark-accent">Nutrition Scanner</h3>
+      <p>Scan a barcode or enter a food item to analyze nutrition.</p>
+      <input type="text" class="w-full bg-gray-900 text-white p-3 rounded-lg mt-2" placeholder="Enter food name...">
+      <button class="btn mt-2" onclick="scanNutrition()">Scan</button>
+      <div id="nutrition-result" class="mt-4 text-gray-400"></div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer text-center mt-10">
+    <p>&copy; 2025 The Portal. All rights reserved.</p>
+  </footer>
+
+  <!-- Script for Interactions -->
+  <script>
+    // Toggle between athlete and coach views
+    function toggleView(view) {
+      if (view === 'athlete') {
+        document.getElementById('athlete-dashboard').classList.remove('hidden');
+        document.getElementById('coach-dashboard').classList.add('hidden');
+      } else if (view === 'coach') {
+        document.getElementById('athlete-dashboard').classList.add('hidden');
+        document.getElementById('coach-dashboard').classList.remove('hidden');
+      }
+    }
+
+    // Simulate Life Coach AI interaction
+    function interactWithAI() {
+      const userInput = document.getElementById('ai-input').value;
+      const response = document.getElementById('ai-response');
+      if (userInput) {
+        response.textContent = `Life Coach AI says: "Keep pushing forward, your goals are within reach!"`;
+      } else {
+        response.textContent = "Please ask a question or seek advice!";
+      }
+    }
+
+    // Simulate Nutrition Scanner
+    function scanNutrition() {
+      const foodInput = document.querySelector('input[type="text"]').value;
+      const resultDiv = document.getElementById('nutrition-result');
+      if (foodInput) {
+        resultDiv.textContent = `${foodInput} contains 250 calories, 10g protein, and 5g fat.`;
+      } else {
+        resultDiv.textContent = "Please enter a food item to scan.";
+      }
+    }
+
+    // Initial dashboard view
+    toggleView('athlete');  // Default to athlete view
+
+    // Example Graphs (you can use a graphing library like Chart.js for real graphs)
+    var ctx = document.getElementById('performanceGraph').getContext('2d');
+    var performanceGraph = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+        datasets: [{
+          label: 'Performance',
+          data: [60, 70, 80, 75, 85],
+          borderColor: '#10b981',
+          backgroundColor: 'rgba(16, 185, 129, 0.2)',
+          fill: true,
+        }]
+      },
+    });
+
+    var athleteProgressCtx = document.getElementById('athleteProgressGraph').getContext('2d');
+    var athleteProgressGraph = new Chart(athleteProgressCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Strength', 'Speed', 'Endurance'],
+        datasets: [{
+          label: 'Athlete Progress',
+          data: [80, 90, 70],
+          backgroundColor: '#6ee7b7',
+        }]
+      },
+    });
+  </script>
+</body>
+
 </html>
