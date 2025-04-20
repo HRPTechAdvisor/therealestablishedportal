@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="Sean J. Smith DJTP | Visionary Technologist">
+  <meta property="og:description" content="Where tech meets grit—crafting innovative solutions and compelling stories that drive impact.">
+  <meta property="og:image" content="RPrealestablished.jpg">
+  <meta property="og:url" content="https://hrptechadvisor.github.io">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sean J. Smith DJTP | Visionary Technologist">
+  <meta name="twitter:description" content="Where tech meets grit—crafting innovative solutions and compelling stories that drive impact.">
+  <meta name="twitter:image" content="RPrealestablished.jpg">
+  <meta name="keywords" content="Sean J. Smith DJTP, tech portfolio, app development, blockchain, AI, cryptocurrency, software engineering, Full Sail University">
+  <meta name="author" content="Sean J. Smith DJTP">
+  <title>🚀 Sean J. Smith DJTP | Visionary Technologist</title>
+  <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.20.15/babel.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.144.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.3/dist/ScrollTrigger.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useEffect, useRef } = React;
+
+    // Navigation Component
+    const Navigation = () => {
+      const navRef = useRef(null);
+
+      useEffect(() => {
+        gsap.from(navRef.current, { y: -100, opacity: 0, duration: 1, ease: "power3.out" });
+        gsap.to(navRef.current, {
+          y: 0,
+          opacity: 1,
+          scrollTrigger: { trigger: "#hero", start: "top top", toggleActions: "play none none reverse" }
+        });
+      }, []);
+
+      return (
+        <nav ref={navRef} className="fixed top-0 w-full bg-black bg-opacity-90 z-50 py-4 px-6 flex justify-center items-center">
+          <div className="flex space-x-4 flex-wrap justify-center">
+            {["hero", "skills", "about", "ventures", "projects", "testimonials", "contact"].map((section) => (
+              <a
+                key={section}
+                href={`#${section}`}
+                className="text-cyan-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition transform hover:scale-105"
+              >
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+              </a>
+            ))}
+          </div>
+        </nav>
+      );
+    };
+
+    // Hero Component with 3D Canvas
+    const Hero = () => {
+      const canvasRef = useRef(null);
+
+      useEffect(() => {
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 400, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current, alpha: true });
+        renderer.setSize(window.innerWidth, 400);
+
+        const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
+        const material = new THREE.MeshBasicMaterial({ color: 0x00ffcc, wireframe: true });
+        const torusKnot = new THREE.Mesh(geometry, material);
+        scene.add(torusKnot);
+
+        camera.position.z = 30;
+
+        const animate = () => {
+          requestAnimationFrame(animate);
+          torusKnot.rotation.x += 0.01;
+          torusKnot.rotation.y += 0.01;
+          renderer.render(scene, camera);
+        };
+        animate();
+
+        window.addEventListener("resize", () => {
+          renderer.setSize(window.innerWidth, 400);
+          camera.aspect = window.innerWidth / 400;
+          camera.updateProjectionMatrix();
+        });
+      }, []);
+
+      return (
+        <section id="hero" className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-black to-gray-900 text-center">
+          <canvas ref={canvasRef} className="w-full h-96"></canvas>
+          <h1 className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-pink-500 animate-pulse">
+            Sean J. Smith DJTP
+          </h1>
+          <p className="mt-4 text-xl text-gray-300 max-w-2xl">
+            Where tech meets grit—crafting innovative solutions and compelling stories that drive impact.
+          </p>
+          <a
+            href="#contact"
+            className="mt-8 inline-block bg-cyan-400 text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-pink-500 hover:text-white transition transform hover:scale-105 shadow-lg shadow-cyan-400/50"
+          >
+            Hire Me Today
+          </a>
+        </section>
+      );
+    };
+
+    // Skills Component
+    const Skills = () => {
+      return (
+        <section id="skills" className="py-20 bg-gray-900">
+          <h2 className="text-4xl font-bold text-cyan-400 text-center mb-12">💡 Skills & Experience</h2>
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-6">
+            <div>
+              <h3 className="text-2xl font-semibold text-yellow-400 mb-4">Core Competencies</h3>
+              <ul className="space-y-2 text-gray-300">
+                <li><strong>App Design & Development:</strong> Building user-friendly apps (e.g., The Portal, Nutrition Tracker)</li>
+                <li><strong>Project Management:</strong> Creating roadmaps and timelines</li>
+                <li><strong>Cryptocurrency & Blockchain:</strong> Planning Portal Eco Coin</li>
+                <li><strong>AI & Education:</strong> Proposing AI integration for academic integrity</li>
+                <li><strong>Software Development & Testing:</strong> Using Shunting Yard Algorithm, unit testing</li>
+                <li><strong>UI/UX Design:</strong> Enhancing accessibility and usability</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-2xl font-semibold text-yellow-400 mb-4">Tools & Technologies</h3>
+              <ul className="space-y-2 text-gray-300">
+                <li><strong>Languages:</strong> C++, Python, Java, JavaScript, GDScript</li>
+                <li><strong>Frameworks:</strong> wxWidgets, Android Studio, Flutter, React</li>
+                <li><strong>Software:</strong> Visual Studio, VS Code, GitHub, SharePoint, Xilinx ISE, Figma</li>
+                <li><strong>Platforms:</strong> Full Sail University, Medium, LinkedIn, AWS Basics</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      );
+    };
+
+    // About Component
+    const About = () => {
+      return (
+        <section id="about" className="py-20 bg-gradient-to-b from-gray-900 to-black text-center">
+          <h2 className="text-4xl font-bold text-cyan-400 mb-12">ℹ️ Who I Am</h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+            Sean J. Smith DJTP, founder of The Real Established Portal. With an Associate’s in Computer Science from Full Sail University and a PhD in progress, I leverage technology to shape impactful solutions across industries. My tech-driven journey includes work in AI, blockchain, app development, and educational tech integration.
+          </p>
+          <a
+            href="#contact"
+            className="inline-block bg-cyan-400 text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-pink-500 hover:text-white transition transform hover:scale-105 shadow-lg shadow-cyan-400/50"
+          >
+            Let's Connect
+          </a>
+        </section>
+      );
+    };
+
+    // Main App Component
+    const App = () => {
+      return (
+        <div>
+          <Navigation />
+          <Hero />
+          <Skills />
+          <About />
+        </div>
+      );
+    };
+
+    ReactDOM.render(<App />, document.getElementById("root"));
+  </script>
+</body>
+</html>
