@@ -15,9 +15,8 @@
   <meta name="keywords" content="Sean J. Smith DJTP, tech portfolio, app development, blockchain, AI, cryptocurrency, software engineering, Full Sail University">
   <meta name="author" content="Sean J. Smith DJTP">
   <title>🚀 Sean J. Smith DJTP | Visionary Technologist</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Orbitron:wght@700&family=Rajdhani:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
     :root {
@@ -29,171 +28,404 @@
       --neon-glow: 0 0 10px var(--primary), 0 0 20px var(--primary);
       --section-bg: rgba(15, 15, 25, 0.85);
     }
-
-    * {
+    
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
       font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('recordback.jpg') no-repeat center center fixed;
+      background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), 
+                  url('recordback.jpg') no-repeat center center fixed;
       background-size: cover;
       color: var(--light);
-      line-height: 1.6;
+      line-height: 1.8;
       overflow-x: hidden;
+      text-align: center;
     }
-
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* Navigation */
-    .nav {
+    
+    header {
       position: fixed;
-      top: 0;
-      right: 20px;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      z-index: 1000;
-    }
-
-    .nav ul {
-      list-style: none;
-    }
-
-    .nav-link {
-      color: var(--light);
-      text-decoration: none;
-      font-size: 1rem;
-      margin: 1rem 0;
-      display: block;
-      transition: color 0.3s ease;
-    }
-
-    .nav-link:hover,
-    .nav-link.active {
-      color: var(--primary);
-      text-shadow: var(--neon-glow);
-    }
-
-    .hamburger {
-      display: none;
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 30px;
-      height: 20px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      z-index: 1100;
-    }
-
-    .hamburger span {
+      top: 60px;
       width: 100%;
-      height: 3px;
-      background: var(--primary);
+      background: rgba(10,10,20,0.95);
+      padding: 1rem;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid transparent;
+      background: linear-gradient(90deg, 
+                rgba(10,10,20,0.9) 0%, 
+                rgba(0,0,0,0.9) 20%, 
+                rgba(0,0,0,0.9) 80%, 
+                rgba(10,10,20,0.9) 100%);
+      animation: borderGlow 3s infinite alternate;
+      transition: transform 0.3s ease;
+    }
+    
+    header.hidden {
+      transform: translateY(-100%);
+    }
+    
+    @keyframes borderGlow {
+      0% { border-bottom-color: rgba(0, 255, 204, 0.3); }
+      100% { border-bottom-color: rgba(255, 0, 170, 0.5); }
+    }
+    
+    header nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    header nav a {
+      color: var(--primary);
+      text-decoration: none;
+      margin: 0.5rem 1rem;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
       transition: all 0.3s ease;
+      border-radius: 5px;
+    }
+    
+    header nav a:hover {
+      color: var(--light);
+      background: rgba(0, 255, 204, 0.2);
+      transform: scale(1.05);
     }
 
-    .mobile-nav {
-      display: none;
+    .social-banner {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100vh;
-      background: rgba(10, 10, 20, 0.95);
-      flex-direction: column;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 0.5rem 0;
+      display: flex;
       justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    .mobile-nav.active {
-      display: flex;
-    }
-
-    .mobile-nav .nav-link {
-      font-size: 1.5rem;
-      margin: 1.5rem 0;
-    }
-
-    /* Social Sidebar */
-    .social-sidebar {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      display: flex;
-      flex-direction: column;
       gap: 1.5rem;
-      z-index: 1000;
+      z-index: 1100;
+      backdrop-filter: blur(4px);
+      transition: transform 0.3s ease;
     }
 
-    .social-sidebar a {
-      color: var(--primary);
-      font-size: 1.5rem;
+    .social-banner.hidden {
+      transform: translateY(-100%);
+    }
+
+    .social-banner a {
+      display: inline-block;
       transition: all 0.3s ease;
+      color: var(--primary);
+      font-size: 2rem;
+      text-decoration: none;
     }
 
-    .social-sidebar a:hover {
+    .social-banner a:hover {
       color: var(--secondary);
-      transform: translateY(-5px);
+      transform: scale(1.2);
+      text-shadow: 0 0 15px var(--primary), 0 0 25px var(--secondary);
     }
-
-    /* Hero Section */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: left;
-      padding: 4rem 0;
+    
+    main {
+      padding: 12rem 1rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-
-    #hero h1 {
+    
+    .project-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem auto;
+    }
+    
+    .project-card {
+      background: var(--section-bg);
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 1px solid rgba(0, 255, 204, 0.3);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+      max-width: 350px;
+    }
+    
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        to bottom right,
+        rgba(0, 255, 204, 0.1) 0%,
+        rgba(255, 0, 170, 0.05) 50%,
+        transparent 100%
+      );
+      transform: rotate(30deg);
+      pointer-events: none;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 255, 204, 0.3);
+      border-color: var(--primary);
+    }
+    
+    h1, h2, h3, h4 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 4rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    h1 {
+      font-size: 3.8rem;
       background: linear-gradient(90deg, var(--primary), var(--accent));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      text-shadow: var(--neon-glow);
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
+      animation: pulse 2.5s infinite alternate;
     }
-
-    #hero h2 {
-      font-size: 2rem;
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.02); }
+    }
+    
+    h2 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin: 3rem auto 1.5rem;
+      position: relative;
+      display: inline-block;
+      max-width: 100%;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      bottom: -10px;
+      left: 0;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: translateX(-50%);
+      left: 50%;
+    }
+    
+    h3, h4 {
+      color: var(--accent);
+      margin-top: 0;
+    }
+    
+    p, li {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    a {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+    
+    a:hover {
       color: var(--light);
-      margin: 1rem 0;
     }
-
-    #hero h2 span {
+    
+    ul {
+      list-style: none;
+      padding: 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    ul li:before {
+      content: "• ";
+      color: var(--accent);
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: 1rem auto;
+      display: block;
+      border: 2px solid var(--primary);
+      transition: all 0.5s ease;
+      border-radius: 8px;
+    }
+    
+    img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 20px var(--primary);
+    }
+    
+    iframe {
+      width: 100%;
+      max-width: 560px;
+      height: 315px;
+      margin: 1rem auto;
+      display: block;
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+    }
+    
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 2rem auto;
+      max-width: 1000px;
+    }
+    
+    .image-grid img {
+      width: 100%;
+      height: auto;
+      border: 2px solid var(--primary);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
+      animation: fadeInImg 0.5s ease-in;
+    }
+    
+    .image-grid img:hover {
+      transform: scale(1.03);
+    }
+    
+    .image-grid img:nth-child(1) { animation-delay: 0.1s; }
+    .image-grid img:nth-child(2) { animation-delay: 0.2s; }
+    .image-grid img:nth-child(3) { animation-delay: 0.3s; }
+    .image-grid img:nth-child(4) { animation-delay: 0.4s; }
+    .image-grid img:nth-child(5) { animation-delay: 0.5s; }
+    .image-grid img:nth-child(6) { animation-delay: 0.6s; }
+    .image-grid img:nth-child(7) { animation-delay: 0.7s; }
+    .image-grid img:nth-child(8) { animation-delay: 0.8s; }
+    .image-grid img:nth-child(9) { animation-delay: 0.9s; }
+    
+    @keyframes fadeInImg {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .tech-badge {
+      display: inline-block;
+      background: rgba(0,0,0,0.5);
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      margin: 0.4rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+    
+    .tech-badge:hover {
+      background: var(--primary);
+      color: var(--dark);
+      transform: scale(1.1);
+    }
+    
+    .status-indicator {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+    
+    .status-planned {
+      background: #ffcc00;
+      box-shadow: 0 0 10px #ffcc00;
+    }
+    
+    .status-in-progress {
+      background: #00ccff;
+      box-shadow: 0 0 10px #00ccff;
+    }
+    
+    .status-completed {
+      background: #00ff66;
+      box-shadow: 0 0 10px #00ff66;
+    }
+    
+    .status-proposal {
+      background: #ff66cc;
+      box-shadow: 0 0 10px #ff66cc;
+    }
+    
+    .status-ongoing {
+      background: #ff9900;
+      box-shadow: 0 0 10px #ff9900;
+    }
+    
+    .twitch-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2rem;
+      font-size: 1.2rem;
       color: var(--primary);
     }
-
-    #hero p {
-      max-width: 600px;
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
+    
+    .twitch-link img {
+      border-radius: 50%;
+      margin-right: 1rem;
+    }
+    
+    .section {
+      background: var(--section-bg);
+      padding: 2.5rem;
+      border-radius: 12px;
+      margin: 2rem auto;
+      border-left: 4px solid var(--primary);
+      max-width: 1000px;
+    }
+    
+    .highlight-section {
+      background: linear-gradient(135deg, rgba(0, 255, 204, 0.1), rgba(255, 0, 170, 0.1));
+      border: 2px solid var(--primary);
+      box-shadow: var(--neon-glow);
+      padding: 3rem;
+      animation: glowFade 4s infinite alternate;
+    }
+    
+    @keyframes glowFade {
+      0% { box-shadow: 0 0 10px var(--primary); }
+      100% { box-shadow: 0 0 20px var(--primary), 0 0 30px var(--secondary); }
+    }
+    
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: rgba(0,0,0,0.9);
+      margin-top: 4rem;
+      border-top: 1px solid rgba(0, 255, 204, 0.2);
     }
 
-    #hero img {
-      width: 200px;
-      border-radius: 50%;
-      border: 3px solid var(--primary);
-      margin: 2rem 0;
+    footer p {
+      margin: 0.5rem auto;
+      font-size: 1rem;
+      max-width: 800px;
+      text-align: center;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: var(--secondary);
     }
 
     .cta-button {
@@ -204,6 +436,7 @@
       border-radius: 25px;
       text-decoration: none;
       font-weight: 700;
+      margin: 1rem auto;
       transition: all 0.3s ease;
       box-shadow: var(--neon-glow);
     }
@@ -212,381 +445,43 @@
       background: var(--secondary);
       color: var(--light);
       transform: scale(1.05);
+      box-shadow: 0 0 15px var(--secondary);
     }
 
-    /* Section Styles */
-    section {
-      padding: 6rem 0;
-    }
-
-    h2 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 2.5rem;
-      color: var(--primary);
-      margin-bottom: 2rem;
-      text-align: center;
-      position: relative;
-    }
-
-    h2::after {
-      content: '';
-      position: absolute;
-      width: 100px;
-      height: 4px;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-    }
-
-    /* About Section */
-    #about {
-      text-align: left;
-      background: var(--section-bg);
-      border-radius: 12px;
-      padding: 4rem 2rem;
-    }
-
-    #about p {
-      max-width: 600px;
-      margin-bottom: 2rem;
-    }
-
-    #about .image-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    #about img {
-      width: 100%;
-      height: auto;
-      border: 2px solid var(--primary);
+    .portfolio-highlight {
+      background: linear-gradient(135deg, rgba(0, 255, 204, 0.2), rgba(255, 0, 170, 0.2));
+      padding: 1rem;
       border-radius: 8px;
-      transition: transform 0.3s ease;
-    }
-
-    #about img:hover {
-      transform: scale(1.03);
-    }
-
-    /* Experience Section */
-    .timeline {
-      position: relative;
+      margin: 1rem auto;
       max-width: 800px;
-      margin: 0 auto;
-      padding: 2rem 0;
     }
 
-    .timeline::before {
-      content: '';
-      position: absolute;
-      width: 4px;
-      background: var(--primary);
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .timeline-item {
-      position: relative;
-      margin: 2rem 0;
-      width: 50%;
-    }
-
-    .timeline-item:nth-child(odd) {
-      left: 0;
-      text-align: right;
-      padding-right: 2rem;
-    }
-
-    .timeline-item:nth-child(even) {
-      left: 50%;
-      padding-left: 2rem;
-    }
-
-    .timeline-content {
-      background:ევ
-
-      padding: 1.5rem;
-      border-radius: 8px;
-      border: 1px solid var(--primary);
-      position: relative;
-    }
-
-    .timeline-content::before {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: var(--primary);
-      border-radius: 50%;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    .timeline-item:nth-child(odd) .timeline-content::before {
-      right: -10px;
-    }
-
-    .timeline-item:nth-child(even) .timeline-content::before {
-      left: -10px;
-    }
-
-    .timeline-content h3 {
-      font-family: 'Orbitron', sans-serif;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-    }
-
-    /* Work Section */
-    .project-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    .project-card {
-      display: flex;
-      align-items: center;
-      background: var(--section-bg);
-      border-radius: 12px;
-      padding: 2rem;
-      border: 1px solid var(--primary);
-      transition: all 0.3s ease;
-    }
-
-    .project-card:nth-child(even) {
-      flex-direction: row-reverse;
-    }
-
-    .project-image {
-      width: 40%;
-      height: auto;
-      border-radius: 8px;
-      margin: 0 2rem;
-    }
-
-    .project-content {
-      flex: 1;
-    }
-
-    .project-content h3 {
-      font-family: 'Orbitron', sans-serif;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-
-    .project-content p {
-      margin-bottom: 1rem;
-    }
-
-    .tech-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .tech-badge {
-      background: rgba(0,0,0,0.5);
-      border: 1px solid var(--primary);
-      color: var(--primary);
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      transition: all 0.3s ease;
-    }
-
-    .tech-badge:hover {
-      background: var(--primary);
-      color: var(--dark);
-    }
-
-    .project-links a {
-      color: var(--primary);
-      margin-right: 1rem;
-      font-size: 1.5rem;
-      transition: color 0.3s ease;
-    }
-
-    .project-links a:hover {
-      color: var(--secondary);
-    }
-
-    /* Music Section */
-    #music {
-      text-align: center;
-    }
-
-    #music iframe {
-      margin: 2rem auto;
-      border: 2px solid var(--primary);
-      border-radius: 8px;
-    }
-
-    /* Contact Section */
-    .contact-form {
-      max-width: 600px;
-      margin: 2rem auto;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid var(--primary);
-      color: var(--light);
-      padding: 0.8rem;
-      margin: 0.5rem 0;
-      border-radius: 5px;
-      font-size: 1rem;
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      border-color: var(--secondary);
-      box-shadow: var(--neon-glow);
-    }
-
-    .contact-form textarea {
-      resize: vertical;
-    }
-
-    .contact-form button {
-      align-self: center;
-    }
-
-    .contact-links {
-      list-style: none;
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .contact-links li {
-      margin: 0.5rem 0;
-    }
-
-    .contact-links a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-
-    .contact-links a:hover {
-      color: var(--secondary);
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 2rem 0;
-      background: rgba(0,0,0,0.9);
-      border-top: 1px solid var(--primary);
-    }
-
-    footer p {
-      font-size: 0.9rem;
-    }
-
-    footer a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      color: var(--secondary);
-    }
-
-    /* Responsive Design */
     @media (max-width: 768px) {
-      .nav {
-        display: none;
+      header nav a {
+        margin: 0.3rem 0.5rem;
+        font-size: 0.9rem;
       }
-
-      .hamburger {
-        display: flex;
+      h1 { font-size: 2.8rem; }
+      h2 { font-size: 2rem; }
+      h3 { font-size: 1.4rem; }
+      iframe { height: 200px; }
+      .project-showcase { grid-template-columns: 1fr; }
+      .image-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       }
-
-      #hero h1 {
-        font-size: 2.5rem;
-      }
-
-      #hero h2 {
+      .section, .highlight-section { padding: 1.5rem; }
+      .social-banner a {
         font-size: 1.5rem;
       }
-
-      .project-card {
-        flex-direction: column !important;
-      }
-
-      .project-image {
-        width: 100%;
-        margin: 1rem 0;
-      }
-
-      .timeline::before {
-        left: 20px;
-      }
-
-      .timeline-item {
-        width: 100%;
-        left: 0;
-        padding-left: 40px;
-        padding-right: 1rem;
-        text-align: left;
-      }
-
-      .timeline-item:nth-child(even) {
-        left: 0;
-      }
-
-      .timeline-content::before {
-        left: 10px;
-      }
-
-      .social-sidebar {
-        bottom: 10px;
-        left: 10px;
-        flex-direction: row;
-        gap: 1rem;
+      .cta-button {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="nav">
-    <ul>
-      <li><a href="#hero" class="nav-link active">Home</a></li>
-      <li><a href="#about" class="nav-link">About</a></li>
-      <li><a href="#experience" class="nav-link">Experience</a></li>
-      <li><a href="#work" class="nav-link">Work</a></li>
-      <li><a href="#music" class="nav-link">Music</a></li>
-      <li><a href="#contact" class="nav-link">Contact</a></li>
-    </ul>
-  </nav>
-
-  <button class="hamburger" aria-label="Toggle Menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-
-  <nav class="mobile-nav">
-    <a href="#hero" class="nav-link">Home</a>
-    <a href="#about" class="nav-link">About</a>
-    <a href="#experience" class="nav-link">Experience</a>
-    <a href="#work" class="nav-link">Work</a>
-    <a href="#music" class="nav-link">Music</a>
-    <a href="#contact" class="nav-link">Contact</a>
-  </nav>
-
-  <!-- Social Sidebar -->
-  <div class="social-sidebar">
+  <div class="social-banner">
     <a href="https://www.twitch.tv/djtrippiepea" target="_blank"><i class="fab fa-twitch"></i></a>
     <a href="https://youtube.com/@djtrippiepea" target="_blank"><i class="fab fa-youtube"></i></a>
     <a href="https://facebook.com/therealestablishedportal" target="_blank"><i class="fab fa-facebook"></i></a>
@@ -595,275 +490,439 @@
     <a href="https://x.com/DJTrippiePea" target="_blank"><i class="fab fa-x-twitter"></i></a>
   </div>
 
-  <!-- Main Content -->
-  <main>
-    <!-- Hero Section -->
-    <section id="hero" class="container" data-aos="fade-up">
-      <h1>Sean J. Smith DJTP</h1>
-      <h2>I’m a <span id="typed-text"></span></h2>
-      <p>Where tech meets grit—crafting innovative solutions and compelling stories that drive impact.</p>
-      <img src="me.jpg" alt="Sean J. Smith" data-aos="zoom-in">
-      <a href="#contact" class="cta-button" data-aos="fade-up" data-aos-delay="200">Hire Me Today</a>
-    </section>
+  <header>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#skills">Skills</a>
+      <a href="#about">About</a>
+      <a href="#what-i-do">What I Do</a>
+      <a href="#ventures">Ventures</a>
+      <a href="#projects">Current Projects</a>
+      <a href="#future-projects">Future Projects</a>
+      <a href="#completed-projects">Completed Projects</a>
+      <a href="#music">Music</a>
+      <a href="#the-real-established-portal">The Real Established Portal</a>
+      <a href="#twitch">Twitch</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <!-- About Section -->
-    <section id="about" class="container" data-aos="fade-up">
-      <h2>ℹ️ About Me</h2>
-      <p>Sean J. Smith DJTP, founder of The Real Established Portal. With an Associate’s in Computer Science from Full Sail University and a PhD in progress, I combine technical expertise with a passion for innovation. My self-driven approach has led to a diverse portfolio of apps, blockchain projects, and creative ventures—ready to tackle your next challenge.</p>
-      <p>Currently enrolled in Harvard’s CS50 program to sharpen my skills. My work blends technical precision with creative storytelling, delivering solutions that resonate—all achieved with resourcefulness and zero budget.</p>
-      <div class="image-grid" data-aos="fade-up" data-aos-delay="100">
+  <main>
+    <section id="the-real-established-portal" class="section">
+      <h2>The Real Established Portal</h2>
+      <div class="image-grid">
         <img src="RPrealestablished.jpg" alt="Real Established Logo">
         <img src="Repdiamondsreal.jpg" alt="Diamonds Real Image">
         <img src="minrep.jpg" alt="Minimal REP Image">
         <img src="repdiamondreal.jpg" alt="REP Diamond Real Image">
       </div>
-      <a href="https://linkedin.com/in/hrptechadvisor" target="_blank" class="cta-button" data-aos="fade-up" data-aos-delay="200">View My LinkedIn</a>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="container" data-aos="fade-up">
-      <h2>📚 Experience & Education</h2>
-      <div class="timeline">
-        <div class="timeline-item" data-aos="fade-right">
-          <div class="timeline-content">
-            <h3>Associate’s in Computer Science</h3>
-            <p>Full Sail University | 2023</p>
-            <p>Graduated with a focus on software development, app design, and blockchain technologies.</p>
+    <section id="hero" class="section">
+      <h1>Sean J. Smith DJTP</h1>
+      <p style="font-size: 1.3rem;">
+        Where tech meets grit—crafting innovative solutions and compelling stories that drive impact.
+      </p>
+      <img src="me.jpg" alt="Sean J. Smith" style="width: 200px; border-radius: 50%; margin: 2rem auto; border: 3px solid var(--primary);">
+      <a href="#contact" class="cta-button">Hire Me Today</a>
+    </section>
+
+    <section id="skills" class="section highlight-section">
+      <h2>💡 Skills & Experience</h2>
+      <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+        Leveraging expertise in cutting-edge technologies to deliver scalable, user-focused solutions.
+      </p>
+      <div class="portfolio-highlight">
+        <p><strong>Proven Track Record:</strong> Successfully delivered apps, blockchain solutions, and creative projects with measurable outcomes.</p>
+      </div>
+      <ul>
+        <li><strong>App Design & Development:</strong> Building functional and user-friendly apps (e.g., The Portal, Nutrition Tracker)</li>
+        <li><strong>Project Management:</strong> Creating roadmaps, timelines, and breaking down tasks into manageable steps</li>
+        <li><strong>Cryptocurrency & Blockchain:</strong> Creating and planning for Portal Eco Coin</li>
+        <li><strong>AI & Education:</strong> Proposing AI integration projects for educational purposes with a focus on academic integrity</li>
+        <li><strong>Software Development & Testing:</strong> Working with Shunting Yard Algorithm, exception handling, and unit testing</li>
+        <li><strong>UI/UX Design:</strong> Refining layouts for better accessibility, usability, and visual consistency (e.g., Android app)</li>
+      </ul>
+      <h3>Tools & Technologies</h3>
+      <ul>
+        <li><strong>Languages:</strong> C++, Python, Java, JavaScript, GDScript</li>
+        <li><strong>Frameworks:</strong> wxWidgets, Android Studio, Flutter, React</li>
+        <li><strong>Software:</strong> Visual Studio, Visual Studio Code, GitHub, SharePoint, Xilinx ISE, Figma</li>
+        <li><strong>Platforms:</strong> Full Sail University, Medium, LinkedIn, AWS Basics</li>
+      </ul>
+    </section>
+
+    <section id="about" class="section highlight-section">
+      <h2>ℹ️ Who I Am</h2>
+      <p style="font-size: 1.2rem;">
+        Sean J. Smith DJTP, founder of The Real Established Portal. With an Associate’s in Computer Science from Full Sail University and a PhD in progress, I combine technical expertise with a passion for innovation. My self-driven approach has led to a diverse portfolio of apps, blockchain projects, and creative ventures—ready to tackle your next challenge.
+      </p>
+      <img src="Reprealdiamn.jpg" alt="Diamond Project Image" style="max-width: 300px;">
+      <a href="https://linkedin.com/in/hrptechadvisor" target="_blank" class="cta-button">View My LinkedIn</a>
+    </section>
+
+    <section id="what-i-do" class="section">
+      <h2>🛠️ What I Do</h2>
+      <p>
+        As a Full Sail University graduate with an Associate’s in Computer Science, I specialize in building robust websites, developing mobile apps, and solving complex technical challenges. Currently pursuing a PhD, I’m also enrolled in Harvard’s CS50 program (accessible free via <a href="https://cs50.harvard.edu/x/2020/psets/1/hello/">CS50</a>) to sharpen my skills. My work blends technical precision with creative storytelling, delivering solutions that resonate—all achieved with resourcefulness and zero budget. Let’s build something extraordinary together.
+      </p>
+    </section>
+
+    <section id="ventures" class="section">
+      <h2>🚀 My Ventures</h2>
+      <div class="project-showcase">
+        <div class="project-card">
+          <h3><i class="fas fa-gamepad"></i> HighSail Game Studio</h3>
+          <p>Cutting-edge game development studio pushing boundaries in interactive entertainment and immersive technologies.</p>
+          <div class="tech-badges">
+            <span class="tech-badge">Unity</span>
+            <span class="tech-badge">Unreal</span>
+            <span class="tech-badge">WebGL</span>
+            <span class="tech-badge">GDScript</span>
           </div>
         </div>
-        <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
-          <div class="timeline-content">
-            <h3>PhD in Progress</h3>
-            <p>Full Sail University | Present</p>
-            <p>Pursuing advanced research in computer science and AI applications.</p>
+        <div class="project-card">
+          <h3><i class="fas fa-microchip"></i> HRP Tech Advisor</h3>
+          <p>Technology consulting firm specializing in innovative solutions for businesses navigating digital transformation.</p>
+          <div class="tech-badges">
+            <span class="tech-badge">AI</span>
+            <span class="tech-badge">Blockchain</span>
+            <span class="tech-badge">IoT</span>
           </div>
         </div>
-        <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
-          <div class="timeline-content">
-            <h3>Harvard CS50</h3>
-            <p>Online Program | Present</p>
-            <p>Enrolled in CS50 to enhance skills in algorithms and web development.</p>
+        <div class="project-card">
+          <h3><i class="fas fa-users"></i> BiFrost Collective</h3>
+          <p>Creative collective merging technology and art to build transformative digital experiences.</p>
+          <div class="tech-badges">
+            <span class="tech-badge">NFTs</span>
+            <span class="tech-badge">VR</span>
+            <span class="tech-badge">AR</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3><i class="fas fa-coins"></i> BitFrost Coin</h3>
+          <p>Next-generation cryptocurrency designed for speed, security, and real-world utility.</p>
+          <div class="tech-badges">
+            <span class="tech-badge">Blockchain</span>
+            <span class="tech-badge">Smart Contracts</span>
+            <span class="tech-badge">Web3</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Work Section -->
-    <section id="work" class="container" data-aos="fade-up">
-      <h2>🛠️ My Work</h2>
-      <div class="project-grid">
-        <div class="project-card" data-aos="fade-up">
-          <img src="portal.jpg" alt="The Portal" class="project-image">
-          <div class="project-content">
-            <h3>The Portal</h3>
-            <p>An all-in-one app for health tracking, smart shopping, life coaching, and AI-driven insights. Currently in wireframe stage using FigJam.</p>
-            <div class="tech-badges">
-              <span class="tech-badge">Swift</span>
-              <span class="tech-badge">Kotlin</span>
-              <span class="tech-badge">ML</span>
-              <span class="tech-badge">FigJam</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/hrptechadvisor/portal" target="_blank"><i class="fab fa-github"></i></a>
-            </div>
+    <section id="projects" class="section">
+      <h2>🛠️ Current Projects</h2>
+      <div class="project-showcase">
+        <div class="project-card">
+          <h3><i class="fas fa-brain"></i> The Portal</h3>
+          <p>An all-in-one app for health tracking, smart shopping, life coaching, and AI-driven insights, featuring health & nutrition scanners, shopping assistance, gas price finder, and premium services. Currently in wireframe stage using FigJam.</p>
+          <div style="margin: 1rem 0;">
+            <span class="status-indicator status-in-progress"></span>
+            <span>In Development</span>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge">Swift</span>
+            <span class="tech-badge">Kotlin</span>
+            <span class="tech-badge">ML</span>
+            <span class="tech-badge">FigJam</span>
           </div>
         </div>
-        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-          <img src="nutrition.jpg" alt="Nutrition Tracker" class="project-image">
-          <div class="project-content">
-            <h3>Nutrition Tracker</h3>
-            <p>An app to track and manage nutrition, integrating features like food scanning and personalized health recommendations.</p>
-            <div class="tech-badges">
-              <span class="tech-badge">Flutter</span>
-              <span class="tech-badge">Firebase</span>
-              <span class="tech-badge">AI</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/hrptechadvisor/nutrition" target="_blank"><i class="fab fa-github"></i></a>
-            </div>
+        <div class="project-card">
+          <h3><i class="fas fa-utensils"></i> Nutrition Tracker</h3>
+          <p>An app to track and manage nutrition, integrating features like food scanning and personalized health recommendations.</p>
+          <div style="margin: 1rem 0;">
+            <span class="status-indicator status-in-progress"></span>
+            <span>In Development</span>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge">Flutter</span>
+            <span class="tech-badge">Firebase</span>
+            <span class="tech-badge">AI</span>
           </div>
         </div>
-        <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-          <img src="wellness.jpg" alt="WellnessPro App" class="project-image">
-          <div class="project-content">
-            <h3>WellnessPro App</h3>
-            <p>Comprehensive wellness platform for PHP providers and fitness coaches featuring AI-driven health insights.</p>
-            <div class="tech-badges">
-              <span class="tech-badge">Flutter</span>
-              <span class="tech-badge">Firebase</span>
-              <span class="tech-badge">AI</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/hrptechadvisor/wellness" target="_blank"><i class="fab fa-github"></i></a>
-            </div>
+        <div class="project-card">
+          <h3><i class="fas fa-heartbeat"></i> WellnessPro App</h3>
+          <p>Comprehensive wellness platform for PHP providers and fitness coaches featuring AI-driven health insights, client management, and treatment tracking.</p>
+          <div style="margin: 1rem 0;">
+            <span class="status-indicator status-in-progress"></span>
+            <span>In Development</span>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge">Flutter</span>
+            <span class="tech-badge">Firebase</span>
+            <span class="tech-badge">AI</span>
           </div>
         </div>
-        <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-          <img src="rentease.jpg" alt="RentEase Platform" class="project-image">
-          <div class="project-content">
-            <h3>RentEase Platform</h3>
-            <p>Blockchain-based property management system with smart contracts and automated payments.</p>
-            <div class="tech-badges">
-              <span class="tech-badge">React</span>
-              <span class="tech-badge">Solidity</span>
-              <span class="tech-badge">Node.js</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/hrptechadvisor/rentease" target="_blank"><i class="fab fa-github"></i></a>
-            </div>
+        <div class="project-card">
+          <h3><i class="fas fa-home"></i> RentEase Platform</h3>
+          <p>Blockchain-based property management system connecting landlords and tenants with smart contracts, automated payments, and maintenance tracking.</p>
+          <div style="margin: 1rem 0;">
+            <span class="status-indicator status-in-progress"></span>
+            <span>In Development</span>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge">React</span>
+            <span class="tech-badge">Solidity</span>
+            <span class="tech-badge">Node.js</span>
           </div>
         </div>
-        <div class="project-card" data-aos="fade-up" data-aos-delay="400">
-          <img src="calculator.jpg" alt="Calculator Application" class="project-image">
-          <div class="project-content">
-            <h3>Calculator Application</h3>
-            <p>A calculator app built with a button factory, processor singleton, and exception handling using the Shunting Yard Algorithm.</p>
-            <div class="tech-badges">
-              <span class="tech-badge">C++</span>
-              <span class="tech-badge">wxWidgets</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/hrptechadvisor/calculator" target="_blank"><i class="fab fa-github"></i></a>
-            </div>
+        <div class="project-card">
+          <h3><i class="fas fa-briefcase"></i> LinkedIn Profile & Resume Development</h3>
+          <p>Building a standout LinkedIn profile and resume showcasing skills and achievements, aiming to surpass industry benchmarks.</p>
+          <div style="margin: 1rem 0;">
+            <span class="status-indicator status-in-progress"></span>
+            <span>In Development</span>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge">LinkedIn</span>
+            <span class="tech-badge">Documentation</span>
           </div>
         </div>
-        <div class="project-card" data-aos="fade-up" data-aos-delay="500">
-          <img src="android.jpg" alt="Android Studio Project" class="project-image">
-          <div class="project-content">
-            <h3>Android Studio Project</h3>
-            <p>An Android app with rounded corners, layout refinement, and accessibility improvements.</p>
-            <div class="tech-badges">
-              <span class="tech-badge">Java</span>
-              <span class="tech-badge">Android Studio</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/hrptechadvisor/android" target="_blank"><i class="fab fa-github"></i></a>
-            </div>
+        <div class="project-card">
+          <h3><i class="fas fa-calculator"></i> Calculator Application</h3>
+          <p>A calculator app built with a button factory, processor singleton, and exception handling, using the Shunting Yard Algorithm. Facing challenges with expression parsing.</p>
+          <div style="margin: 1rem 0;">
+            <span class="status-indicator status-in-progress"></span>
+            <span>In Development</span>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge">C++</span>
+            <span class="tech-badge">wxWidgets</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3><i class="fas fa-mobile-alt"></i> Android Studio Practice Project</h3>
+          <p>Developing an Android app with rounded corners, layout refinement, and accessibility improvements.</p>
+          <div style="margin: 1rem 0;">
+            <span class="status-indicator status-in-progress"></span>
+            <span>In Development</span>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge">Java</span>
+            <span class="tech-badge">Android Studio</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3><i class="fas fa-video"></i> Breakout</h3>
+          <p>A web series idea with gritty tales of ambition, planning a free GitHub Pages prototype.</p>
+          <div style="margin: 1rem 0;">
+            <span class="status-indicator status-in-progress"></span>
+            <span>In Development</span>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge">HTML</span>
+            <span class="tech-badge">CSS</span>
+            <span class="tech-badge">JavaScript</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3><i class="fas fa-pen"></i> Blog Posts on Medium</h3>
+          <p>Writing insightful blog posts on computer science, technology, and ongoing projects.</p>
+          <div style="margin: 1rem 0;">
+            <span class="status-indicator status-ongoing"></span>
+            <span>Ongoing</span>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge">Writing</span>
+            <span class="tech-badge">Medium</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3><i class="fas fa-flask"></i> Lab Projects</h3>
+          <p>Academic labs including Calculator Button Factory, Processor Singleton, Calculator Tests, and LED Brightness Optimization.</p>
+          <div style="margin: 1rem 0;">
+            <span class="status-indicator status-in-progress"></span>
+            <span>In Development</span>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge">C++</span>
+            <span class="tech-badge">Embedded C</span>
+            <span class="tech-badge">Xilinx</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3><i class="fas fa-film"></i> This Site</h3>
+          <p>Built from scratch at hrptechadvisor.github.io to showcase my skills and land work.</p>
+          <div style="margin: 1rem 0;">
+            <span class="status-indicator status-completed"></span>
+            <span>Completed</span>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge">HTML</span>
+            <span class="tech-badge">CSS</span>
+            <span class="tech-badge">JavaScript</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Music Section -->
-    <section id="music" class="container" data-aos="fade-up">
+    <section id="future-projects" class="section">
+      <h2>📅 Future Projects</h2>
+      <div class="project-showcase">
+        <div class="project-card">
+          <h3><i class="fas fa-chart-line"></i> Stock Prediction App</h3>
+          <p>A simple stock prediction app with a search bar for users to receive predictions for various time intervals (1 minute to 1 year).</p>
+          <div style="margin: 1rem 0;">
+            <span class="status-indicator status-planned"></span>
+            <span>Planned</span>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">TensorFlow</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3><i class="fas fa-coins"></i> Portal Eco Coin (PEC)</h3>
+          <p>A cryptocurrency project named Portal Eco Coin, focused on sustainability and eco-friendly applications.</p>
+          <div style="margin: 1rem 0;">
+            <span class="status-indicator status-planned"></span>
+            <span>Planned</span>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge">Blockchain</span>
+            <span class="tech-badge">Smart Contracts</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3><i class="fas fa-robot"></i> AI Integration for Education</h3>
+          <p>A proposal for AI integration in education, using a Discord bot with custom knowledge base, SharePoint and GitHub integration, and academic integrity rules.</p>
+          <div style="margin: 1rem 0;">
+            <span class="status-indicator status-proposal"></span>
+            <span>Proposal Stage</span>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">Discord API</span>
+            <span class="tech-badge">AI</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="completed-projects" class="section">
+      <h2>✅ Completed Projects</h2>
+      <div class="project-showcase">
+        <div class="project-card">
+          <h3><i class="fas fa-home"></i> Landlord Community App</h3>
+          <p>A community app designed for landlords to manage properties and communicate with tenants.</p>
+          <div style="margin: 1rem 0;">
+            <span class="status-indicator status-completed"></span>
+            <span>Completed</span>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge">JavaScript</span>
+            <span class="tech-badge">Node.js</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3><i class="fas fa-gamepad"></i> Conway's Game of Life</h3>
+          <p>A simulation of Conway’s Game of Life, a cellular automaton that evolves based on set rules.</p>
+          <div style="margin: 1rem 0;">
+            <span class="status-indicator status-completed"></span>
+            <span>Completed</span>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">Pygame</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3><i class="fas fa-code"></i> GDScript Projects</h3>
+          <p>Multiple game development projects using Godot Engine and GDScript.</p>
+          <div style="margin: 1rem 0;">
+            <span class="status-indicator status-completed"></span>
+            <span>Completed</span>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge">GDScript</span>
+            <span class="tech-badge">Godot</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3><i class="fas fa-film"></i> Street Echoes</h3>
+          <p>A short film shot on my phone, capturing raw city vibes. Used HTML/CSS skills from Full Sail to mock up a promo site.</p>
+          <div style="margin: 1rem 0;">
+            <span class="status-indicator status-completed"></span>
+            <span>Completed</span>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge">HTML</span>
+            <span class="tech-badge">CSS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="music" class="section">
       <h2>🎵 Featured Music</h2>
       <p>Listen to original tracks produced by Sean J. Smith DJTP:</p>
       <iframe
         src="https://www.bandlab.com/embed/?id=064f87ed-b119-f011-aaa7-0022484892d6"
         sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-        allowfullscreen
-        data-aos="fade-up"
-        data-aos-delay="100">
+        allowfullscreen>
       </iframe>
       <p>Also check out more music on YouTube:</p>
-      <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/jup9oaq7CV0?si=9rO0aKRbSs612dcF"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen
-        data-aos="fade-up"
-        data-aos-delay="200">
-      </iframe>
-      <a href="https://www.twitch.tv/djtrippiepea" target="_blank" class="cta-button" data-aos="fade-up" data-aos-delay="300">
-        Join Me Live on Twitch
-      </a>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/jup9oaq7CV0?si=9rO0aKRbSs612dcF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="container" data-aos="fade-up">
-      <h2>📬 Get in Touch</h2>
-      <p>Ready to collaborate? Send me a message or reach out via socials.</p>
-      <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST" data-aos="fade-up" data-aos-delay="100">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit" class="cta-button">Send Message</button>
-      </form>
-      <ul class="contact-links" data-aos="fade-up" data-aos-delay="200">
+    <section id="twitch" class="section">
+      <h2>📺 Join Me Live on Twitch</h2>
+      <p>Catch me streaming live on Twitch! Join the fun and interact with me in real-time:</p>
+      <div class="twitch-link">
+        <a href="https://www.twitch.tv/djtrippiepea" target="_blank">Follow me on Twitch @DJTrippiePea</a>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <h2>❓ Frequently Asked Questions</h2>
+      <ul>
+        <li><strong>Need a website?</strong> I can build a high-quality site using GitHub Pages—contact me to discuss your vision!</li>
+        <li><strong>Hiring?</strong> I’m available for full-time, part-time, or freelance roles. Let’s solve your tech challenges together.</li>
+        <li><strong>Why free?</strong> My Full Sail education taught me to innovate without resources—delivering value is my priority.</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>📬 Contact Me</h2>
+      <p>Ready to collaborate? Reach out through any of these channels:</p>
+      <ul>
         <li>Phone: <a href="tel:2248289966">224-828-9966</a></li>
         <li>Email: <a href="mailto:sjsmith5@student.fullsail.edu">sjsmith5@student.fullsail.edu</a></li>
         <li>Personal Email: <a href="mailto:djtrippiepea@gmail.com">djtrippiepea@gmail.com</a></li>
-        <li>Facebook: <a href="https://facebook.com/therealestablishedportal" target="_blank">therealestablishedportal</a></li>
-        <li>Instagram: <a href="https://instagram.com/therealestablishedportal" target="_blank">therealestablishedportal</a></li>
-        <li>LinkedIn: <a href="https://linkedin.com/in/hrptechadvisor" target="_blank">hrptechadvisor</a></li>
-        <li>X: <a href="https://x.com/DJTrippiePea" target="_blank">DJTrippiePea</a></li>
-        <li>YouTube: <a href="https://youtube.com/@djtrippiepea" target="_blank">djtrippiepea</a></li>
-        <li>Twitch: <a href="https://www.twitch.tv/djtrippiepea" target="_blank">djtrippiepea</a></li>
+        <li>Facebook: <a href="https://facebook.com/therealestablishedportal" target="_blank">facebook.com/therealestablishedportal</a></li>
+        <li>Instagram: <a href="https://instagram.com/therealestablishedportal" target="_blank">instagram.com/therealestablishedportal</a></li>
+        <li>LinkedIn: <a href="https://linkedin.com/in/hrptechadvisor" target="_blank">linkedin.com/in/hrptechadvisor</a></li>
+        <li>X: <a href="https://x.com/DJTrippiePea" target="_blank">x.com/DJTrippiePea</a></li>
+        <li>YouTube: <a href="https://youtube.com/@djtrippiepea" target="_blank">youtube.com/@djtrippiepea</a></li>
+        <li>Twitch: <a href="https://www.twitch.tv/djtrippiepea" target="_blank">www.twitch.tv/djtrippiepea</a></li>
       </ul>
-      <a href="#faq" class="cta-button" data-aos="fade-up" data-aos-delay="300">View FAQ</a>
+      <a href="mailto:sjsmith5@student.fullsail.edu" class="cta-button">Send Me a Message</a>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
     <p><a href="https://hrptechadvisor.github.io">The Real Established Portal</a></p>
     <p>© 2025 The Real Established Portal. All rights reserved.</p>
     <p>Designed & Developed by Sean J. Smith DJTP</p>
   </footer>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Typed.js
-      new Typed('#typed-text', {
-        strings: ['Developer', 'Innovator', 'Creator', 'Technologist'],
-        typeSpeed: 50,
-        backSpeed: 30,
-        loop: true,
-        backDelay: 1500
-      });
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', () => {
+      const socialBanner = document.querySelector('.social-banner');
+      const header = document.querySelector('header');
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-      // AOS
-      AOS.init({
-        duration: 800,
-        easing: 'ease-in-out',
-        once: true
-      });
-
-      // Hamburger Menu
-      const hamburger = document.querySelector('.hamburger');
-      const mobileNav = document.querySelector('.mobile-nav');
-      hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('open');
-        mobileNav.classList.toggle('active');
-      });
-
-      // Smooth Scrolling
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          e.preventDefault();
-          document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-          });
-          mobileNav.classList.remove('active');
-          hamburger.classList.remove('open');
-        });
-      });
-
-      // Active Nav Link
-      const sections = document.querySelectorAll('section');
-      const navLinks = document.querySelectorAll('.nav-link');
-      window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-          const sectionTop = section.offsetTop - 100;
-          if (window.pageYOffset >= sectionTop) {
-            current = section.getAttribute('id');
-          }
-        });
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href').slice(1) === current) {
-            link.classList.add('active');
-          }
-        });
-      });
+      if (currentScroll > lastScrollTop && currentScroll > 100) {
+        socialBanner.classList.add('hidden');
+        header.classList.add('hidden');
+      } else {
+        socialBanner.classList.remove('hidden');
+        header.classList.remove('hidden');
+      }
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
     });
   </script>
 </body>
