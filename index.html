@@ -1,220 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Portal - Premium Experience</title>
+  <title>Elite Health | Break World Records</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
+      background: #111111;
+      color: white;
       font-family: 'Roboto', sans-serif;
-      background-color: #111827; /* Deep Charcoal */
-      color: #e5e7eb;
-      transition: background-color 0.3s ease-in-out;
+      transition: background 0.5s ease;
     }
+
+    .neon-text {
+      color: #10b981;
+      text-shadow: 0 0 20px rgba(16, 185, 129, 1), 0 0 30px rgba(16, 185, 129, 0.9);
+    }
+
     .btn {
       padding: 12px 24px;
       background-color: #10b981;
       color: white;
       border-radius: 10px;
       font-weight: bold;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-      box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+      transition: transform 0.3s ease, background-color 0.3s ease;
     }
+
     .btn:hover {
       background-color: #06b870;
-      transform: scale(1.05);
+      transform: scale(1.1);
     }
+
     .btn:active {
       transform: scale(0.95);
     }
-    .dashboard-card {
-      background-color: #1f2937;
-      border-radius: 16px;
+
+    .header {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: bold;
+      color: white;
+      text-shadow: 0 0 15px rgba(16, 185, 129, 1);
+    }
+
+    .subheading {
+      font-size: 1.25rem;
+      color: #e5e7eb;
+      margin-top: 10px;
+    }
+
+    .card {
+      background: #1a1a1a;
       padding: 20px;
       margin: 20px;
-      color: #e5e7eb;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
     }
-    .dashboard-card:hover {
-      transform: translateY(-10px);
-    }
-    .neon-text {
+
+    .card-title {
       color: #10b981;
-      text-shadow: 0 0 10px rgba(16, 185, 129, 0.8);
-    }
-    .graph-container {
-      margin-top: 30px;
-    }
-    .graph-title {
-      font-size: 1.25rem;
-      color: #6ee7b7;
+      font-size: 1.5rem;
       margin-bottom: 10px;
     }
-    .card-header {
-      background-color: #111827;
-      color: #10b981;
-      padding: 12px;
-      border-radius: 8px 8px 0 0;
-      font-size: 1.5rem;
-      font-weight: bold;
+
+    .highlight-bg {
+      background: rgba(16, 185, 129, 0.2);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
-    .card-footer {
-      text-align: center;
-      font-size: 0.85rem;
-      color: #9ca3af;
-      margin-top: 20px;
-    }
-    /* For mobile responsiveness */
-    @media (max-width: 768px) {
-      .dashboard-card {
-        margin: 10px;
-      }
-    }
+
   </style>
 </head>
 
-<body class="bg-gray-900">
-
+<body>
   <!-- Header Section -->
-  <header class="text-center p-8">
-    <h1 class="text-5xl font-extrabold text-white mb-2">The Portal</h1>
-    <p class="text-2xl text-gray-400">Your All-in-One Life Management & Health Optimization Tool</p>
+  <header class="header">
+    <h1 class="hero-title neon-text">Elite Health | Break World Records</h1>
+    <p class="subheading">Push the boundaries of fitness and wellness</p>
+    <button class="btn mt-5" onclick="scrollToLeaderboard()">Explore Records</button>
   </header>
 
-  <!-- Main Content -->
-  <main class="container mx-auto p-4">
-
-    <!-- Dashboard Toggle -->
-    <div class="flex justify-center mb-6">
-      <button class="btn mx-2" onclick="toggleView('athlete')">Athlete View</button>
-      <button class="btn mx-2" onclick="toggleView('coach')">Coach View</button>
-    </div>
-
-    <!-- Athlete Dashboard -->
-    <div id="athlete-dashboard" class="dashboard-card hidden">
-      <div class="card-header">Athlete Dashboard</div>
-      <div class="graph-container">
-        <div class="graph-title neon-text">Performance Graph</div>
-        <canvas id="performanceGraph"></canvas>
+  <!-- Health Tracking Dashboard -->
+  <section class="highlight-bg mt-10 p-6 text-center">
+    <h2 class="neon-text text-xl">Track Your Progress</h2>
+    <div class="mt-4">
+      <!-- Health metrics (e.g., calories burned, steps taken, etc.) -->
+      <div class="card">
+        <h3 class="card-title">Calories Burned Today</h3>
+        <p>800/1000 kcal</p>
       </div>
-      <div class="mt-8">
-        <div class="graph-title neon-text">AI Meal Suggestions</div>
-        <ul class="list-disc ml-6 text-gray-300">
-          <li>Chicken Salad</li>
-          <li>Protein Smoothie</li>
-          <li>Quinoa & Veggies</li>
-        </ul>
+      <div class="card">
+        <h3 class="card-title">Steps Taken</h3>
+        <p>12,345/15,000 steps</p>
       </div>
     </div>
+  </section>
 
-    <!-- Coach Dashboard -->
-    <div id="coach-dashboard" class="dashboard-card hidden">
-      <div class="card-header">Coach Dashboard</div>
-      <div class="graph-container">
-        <div class="graph-title neon-text">Athlete's Progress</div>
-        <canvas id="athleteProgressGraph"></canvas>
-      </div>
-      <div class="mt-8">
-        <textarea rows="4" class="w-full bg-gray-800 text-white p-3 rounded-lg" placeholder="Leave feedback..."></textarea>
-      </div>
+  <!-- Record Leaderboards -->
+  <section id="leaderboards" class="highlight-bg mt-10 p-6">
+    <h2 class="neon-text text-2xl">Global Health Records</h2>
+    <div id="record-list" class="mt-6">
+      <!-- Dynamic record content here -->
     </div>
+  </section>
 
-    <!-- Life Coach AI Box -->
-    <div class="mt-12 p-6 bg-gray-800 rounded-lg">
-      <div class="text-xl mb-4 neon-text">Life Coach AI</div>
-      <div class="bg-gray-700 p-4 rounded-md">
-        <input type="text" id="ai-input" class="w-full bg-gray-900 text-white p-3 rounded-lg mb-2" placeholder="Ask your life coach...">
-        <button class="btn mt-2" onclick="interactWithAI()">Get Advice</button>
-        <p id="ai-response" class="mt-4 text-gray-400"></p>
-      </div>
-    </div>
-
-    <!-- Nutrition Scanner Simulation -->
-    <div class="mt-12 p-6 bg-gray-800 rounded-lg">
-      <div class="text-xl mb-4 neon-text">Nutrition Scanner</div>
-      <input type="text" class="w-full bg-gray-900 text-white p-3 rounded-lg mb-4" placeholder="Enter food name...">
-      <button class="btn" onclick="scanNutrition()">Scan</button>
-      <div id="nutrition-result" class="mt-4 text-gray-400"></div>
-    </div>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="card-footer">
-    <p>&copy; 2025 The Portal. All rights reserved. Designed for Maximum Engagement.</p>
-  </footer>
-
-  <!-- Script for Interactions -->
+  <!-- JavaScript for Interaction -->
   <script>
-    // Toggle between athlete and coach views
-    function toggleView(view) {
-      if (view === 'athlete') {
-        document.getElementById('athlete-dashboard').classList.remove('hidden');
-        document.getElementById('coach-dashboard').classList.add('hidden');
-      } else if (view === 'coach') {
-        document.getElementById('athlete-dashboard').classList.add('hidden');
-        document.getElementById('coach-dashboard').classList.remove('hidden');
-      }
+    // Simulate Real-Time Record Feed
+    function updateRecords() {
+      const records = [
+        { title: "Fastest 5K Run", value: "12 minutes", holder: "Usain Bolt" },
+        { title: "Most Push-ups in a Day", value: "10,000", holder: "John Doe" }
+      ];
+      let recordHTML = '';
+      records.forEach(record => {
+        recordHTML += `
+          <div class="card">
+            <h3 class="card-title">${record.title}</h3>
+            <p>Record Holder: <strong>${record.holder}</strong></p>
+            <p>Record Value: <strong>${record.value}</strong></p>
+          </div>
+        `;
+      });
+      document.getElementById('record-list').innerHTML = recordHTML;
     }
 
-    // Simulate Life Coach AI interaction
-    function interactWithAI() {
-      const userInput = document.getElementById('ai-input').value;
-      const response = document.getElementById('ai-response');
-      if (userInput) {
-        response.textContent = `Life Coach AI says: "Keep pushing forward, your goals are within reach!"`;
-      } else {
-        response.textContent = "Please ask a question or seek advice!";
-      }
+    // Scroll to leaderboard
+    function scrollToLeaderboard() {
+      document.getElementById('leaderboards').scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Simulate Nutrition Scanner
-    function scanNutrition() {
-      const foodInput = document.querySelector('input[type="text"]').value;
-      const resultDiv = document.getElementById('nutrition-result');
-      if (foodInput) {
-        resultDiv.textContent = `${foodInput} contains 250 calories, 10g protein, and 5g fat.`;
-      } else {
-        resultDiv.textContent = "Please enter a food item to scan.";
-      }
-    }
-
-    // Initial dashboard view
-    toggleView('athlete');  // Default to athlete view
-
-    // Example Graphs with Chart.js
-    var ctx = document.getElementById('performanceGraph').getContext('2d');
-    var performanceGraph = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
-        datasets: [{
-          label: 'Performance',
-          data: [60, 70, 80, 75, 85],
-          borderColor: '#10b981',
-          backgroundColor: 'rgba(16, 185, 129, 0.2)',
-          fill: true,
-        }]
-      },
-    });
-
-    var athleteProgressCtx = document.getElementById('athleteProgressGraph').getContext('2d');
-    var athleteProgressGraph = new Chart(athleteProgressCtx, {
-      type: 'bar',
-      data: {
-        labels: ['Strength', 'Speed', 'Endurance'],
-        datasets: [{
-          label: 'Athlete Progress',
-          data: [80, 90, 70],
-          backgroundColor: '#6ee7b7',
-        }]
-      },
-    });
+    // Initialize
+    updateRecords();
   </script>
 </body>
-
 </html>
