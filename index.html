@@ -1,124 +1,157 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-  <!-- Updated Meta Tags for CEO Focus -->
-  <meta property="og:title" content="Sean Smith | AI Video Solutions for Launchpad BizDev">
-  <meta property="og:description" content="3 Proven Methods to Scale Launchpad's Video Output 5x Using AI Workflows">
-  <meta name="keywords" content="AI video editing, Adobe Premiere Pro, CapCut, marketing videos, 50% faster turnaround">
-
-  <!-- Add Schema Markup -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Sean J. Smith DJTP",
-    "url": "https://hrptechadvisor.github.io",
-    "image": "https://yourdomain.com/RPrealestablished.jpg",
-    "jobTitle": "AI Video Solutions Architect",
-    "alumniOf": "Full Sail University"
-  }
-  </script>
-
+  <!-- Keep existing meta tags -->
   <style>
-    /* Add CEO-Specific Styles */
-    .ceo-section {
-      background: linear-gradient(135deg, rgba(0,40,60,0.9), rgba(0,0,30,0.9));
-      border: 3px solid var(--primary);
-      margin: 2rem auto;
-      padding: 2.5rem;
-    }
-
-    .roi-grid {
+    /* Add project-focused styles */
+    .master-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin: 2rem 0;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
     }
 
-    .roi-card {
-      background: rgba(255,255,255,0.1);
-      padding: 1.5rem;
+    .portfolio-piece {
+      background: rgba(20,20,30,0.9);
       border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-piece:hover {
+      transform: translateY(-5px);
+    }
+
+    .piece-header {
+      padding: 1.5rem;
+      background: linear-gradient(135deg, #00ffcc30, #ff00aa30);
+    }
+
+    .piece-content {
+      padding: 1.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      background: #00ffcc20;
+      border: 1px solid #00ffcc;
+      margin: 0.3rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
 
-  <!-- CEO Hero Section -->
-  <section id="ceo-hero" class="section">
-    <div class="ceo-section">
-      <h1>Your Competitors Are Using AI Editing.<br>Here's How Launchpad Can Dominate</h1>
-      <div class="roi-grid">
-        <div class="roi-card">
-          <h3>50% Faster Production</h3>
-          <p>Proven with 1200+ videos edited</p>
-          <img src="https://yourdomain.com/AAF-1Cbbs4M_1733953449451.png" alt="Editing Speed Proof">
+  <!-- Design Work Section -->
+  <section class="section">
+    <h2>Design Portfolio</h2>
+    <div class="master-grid">
+      
+      <!-- Figma Slides -->
+      <div class="portfolio-piece">
+        <div class="piece-header">
+          <h3>Pitch Deck Design</h3>
+          <div class="badges">
+            <span class="badge">Figma</span>
+            <span class="badge">UI/UX</span>
+          </div>
         </div>
-        <div class="roi-card">
-          <h3>3x Engagement Growth</h3>
-          <video controls style="width:100%">
-            <source src="https://yourdomain.com/Motivational%20Quotes%20Instagram%20Reel%20Video.mp4" type="video/mp4">
-          </video>
+        <div class="piece-content">
+          <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" 
+                  width="100%" 
+                  height="300" 
+                  src="https://embed.figma.com/slides/V1CDH3NwonnFw1kGaFgB3t/Template-for-Pitch-Deck--Copy-?node-id=1-271&embed-host=share" 
+                  allowfullscreen></iframe>
         </div>
-        <div class="roi-card">
-          <h3>$18k/Month Saved</h3>
-          <p>Stock footage & rendering costs eliminated</p>
-          <img src="https://yourdomain.com/CertificateOfCompletion_Career_Essentials_in_Generative_AI_by_Microsoft.jpg" alt="AI Certification">
+      </div>
+
+      <!-- Canva Designs -->
+      <div class="portfolio-piece">
+        <div class="piece-header">
+          <h3>Social Media Designs</h3>
+          <div class="badges">
+            <span class="badge">Canva</span>
+            <span class="badge">Graphic Design</span>
+          </div>
+        </div>
+        <div class="piece-content">
+          <div style="position:relative; padding-top: 133.3333%;">
+            <iframe loading="lazy" 
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;" 
+                    src="https://www.canva.com/design/DAFUSIOdm90/NVF_eo2J7HMoBNNuIOm70Q/view?embed" 
+                    allowfullscreen></iframe>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Embedded Pitch Deck -->
+  <!-- Development Projects -->
   <section class="section">
-    <h2>Launchpad-Specific Solutions</h2>
-    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" 
-            src="https://embed.figma.com/slides/V1CDH3NwonnFw1kGaFgB3t/Template-for-Pitch-Deck--Copy-?node-id=1-271&embed-host=share" 
-            allowfullscreen></iframe>
+    <h2>Development Projects</h2>
+    <div class="master-grid">
+      
+      <!-- GitHub Showcase -->
+      <div class="portfolio-piece">
+        <div class="piece-header">
+          <h3>Personal Portfolio</h3>
+          <div class="badges">
+            <span class="badge">HTML/CSS</span>
+            <span class="badge">JavaScript</span>
+          </div>
+        </div>
+        <div class="piece-content">
+          <img src="hrptechadvisor.github.io-screenshot.png" alt="Portfolio Screenshot">
+          <a href="https://hrptechadvisor.github.io" target="_blank" class="cta-button">Live Demo</a>
+        </div>
+      </div>
+
+      <!-- Android Project -->
+      <div class="portfolio-piece">
+        <div class="piece-header">
+          <h3>Android Studio Work</h3>
+          <div class="badges">
+            <span class="badge">Java</span>
+            <span class="badge">Mobile UI</span>
+          </div>
+        </div>
+        <div class="piece-content">
+          <video controls style="width:100%">
+            <source src="document_5181506085571265683.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- AI Editing Showcase -->
-  <section class="section ceo-section">
-    <h2>Your Content, Supercharged</h2>
-    <div class="before-after-slider">
-      <img src="https://yourdomain.com/practice_image_302.png" alt="Raw Footage">
-      <img src="https://yourdomain.com/practice_image_303.png" alt="AI Enhanced">
-    </div>
-    <div class="portfolio-highlight">
-      <p>Generated in 47 minutes using Pictory.ai + CapCut AI</p>
-      <a href="https://www.canva.com/design/DAFUSIOdm90/NVF_eo2J7HMoBNNuIOm70Q/view" 
-         class="cta-button" target="_blank">View Full Campaign Design</a>
+  <!-- Certifications -->
+  <section class="section">
+    <h2>Certifications</h2>
+    <div class="master-grid">
+      <div class="portfolio-piece">
+        <div class="piece-header">
+          <h3>Microsoft AI Certification</h3>
+          <div class="badges">
+            <span class="badge">AI Fundamentals</span>
+          </div>
+        </div>
+        <div class="piece-content">
+          <img src="CertificateOfCompletion_Career_Essentials_in_Generative_AI_by_Microsoft.jpg" 
+               alt="Microsoft Certification" style="width:100%">
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Instagram Reels Grid -->
+  <!-- Social Media Content -->
   <section class="section">
-    <h2>Viral-Ready Content Samples</h2>
-    <div class="instagram-grid">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DDKuoZSyHlo/"...></blockquote>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DB8dGXXIiVg/"...></blockquote>
+    <h2>Content Creation</h2>
+    <div class="master-grid instagram-grid">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DDKuoZSyHlo/"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DB8dGXXIiVg/"></blockquote>
       <!-- Add other Instagram embeds -->
-    </div>
-  </section>
-
-  <!-- Hidden CEO Message -->
-  <div style="opacity:0.1; position:fixed; bottom:10px; right:10px;">
-    <small>For Launchpad's CEO: Ask me about the 30% render cost reduction strategy</small>
-  </div>
-
-  <!-- Updated Contact Section -->
-  <section id="contact" class="section ceo-section">
-    <h2>Let's Build Your AI Advantage</h2>
-    <div class="ceo-offer">
-      <h3>Exclusive Launchpad Offer:</h3>
-      <p>Free Workflow Audit - I'll analyze 3 client projects and show you:</p>
-      <ul>
-        <li>AI automation opportunities</li>
-        <li>Cost reduction strategies</li>
-        <li>Content scaling potential</li>
-      </ul>
-      <a href="mailto:sjsmith5@student.fullsail.edu?subject=Launchpad%20AI%20Audit" 
-         class="cta-button">Claim Free Audit →</a>
     </div>
   </section>
 
