@@ -1,929 +1,524 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta property="og:title" content="Sean J. Smith DJTP | Visionary Technologist">
-  <meta property="og:description" content="Where tech meets grit—crafting innovative solutions and compelling stories that drive impact.">
-  <meta property="og:image" content="RPrealestablished.jpg">
-  <meta property="og:url" content="https://hrptechadvisor.github.io">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Sean J. Smith DJTP | Visionary Technologist">
-  <meta name="twitter:description" content="Where tech meets grit—crafting innovative solutions and compelling stories that drive impact.">
-  <meta name="twitter:image" content="RPrealestablished.jpg">
-  <meta name="keywords" content="Sean J. Smith DJTP, tech portfolio, app development, blockchain, AI, cryptocurrency, software engineering, Full Sail University">
-  <meta name="author" content="Sean J. Smith DJTP">
-  <title>🚀 Sean J. Smith DJTP | Visionary Technologist</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Orbitron:wght@700&family=Rajdhani:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <style>
-    :root {
-      --primary: #00ffcc;
-      --secondary: #ff00aa;
-      --accent: #ffcc00;
-      --dark: #111;
-      --light: #fff;
-      --neon-glow: 0 0 10px var(--primary), 0 0 20px var(--primary);
-      --section-bg: rgba(15, 15, 25, 0.85);
-    }
-    
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), 
-                  url('recordback.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: var(--light);
-      line-height: 1.8;
-      overflow-x: hidden;
-      text-align: center;
-    }
-    
-    header {
-      position: fixed;
-      top: 60px;
-      width: 100%;
-      background: rgba(10,10,20,0.95);
-      padding: 1rem;
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid transparent;
-      background: linear-gradient(90deg, 
-                rgba(10,10,20,0.9) 0%, 
-                rgba(0,0,0,0.9) 20%, 
-                rgba(0,0,0,0.9) 80%, 
-                rgba(10,10,20,0.9) 100%);
-      animation: borderGlow 3s infinite alternate;
-      transition: transform 0.3s ease;
-    }
-    
-    header.hidden {
-      transform: translateY(-100%);
-    }
-    
-    @keyframes borderGlow {
-      0% { border-bottom-color: rgba(0, 255, 204, 0.3); }
-      100% { border-bottom-color: rgba(255, 0, 170, 0.5); }
-    }
-    
-    header nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    
-    header nav a {
-      color: var(--primary);
-      text-decoration: none;
-      margin: 0.5rem 1rem;
-      font-size: 1rem;
-      padding: 0.5rem 1rem;
-      transition: all 0.3s ease;
-      border-radius: 5px;
-    }
-    
-    header nav a:hover {
-      color: var(--light);
-      background: rgba(0, 255, 204, 0.2);
-      transform: scale(1.05);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sean J. Smith DJTP | Complete Portfolio</title>
+    <base href="https://hrptechadvisor.github.io/therealestablishedportal/">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f8f9fa;
+        }
 
-    .social-banner {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      padding: 0.5rem 0;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      z-index: 1100;
-      backdrop-filter: blur(4px);
-      transition: transform 0.3s ease;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    .social-banner.hidden {
-      transform: translateY(-100%);
-    }
+        h1, h2 {
+            color: #2d2d2d;
+            text-align: center;
+            margin: 30px 0;
+        }
 
-    .social-banner a {
-      display: inline-block;
-      transition: all 0.3s ease;
-      color: var(--primary);
-      font-size: 2rem;
-      text-decoration: none;
-    }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
 
-    .social-banner a:hover {
-      color: var(--secondary);
-      transform: scale(1.2);
-      text-shadow: 0 0 15px var(--primary), 0 0 25px var(--secondary);
-    }
-    
-    main {
-      padding: 12rem 1rem 4rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    .project-showcase {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2rem;
-      margin: 3rem auto;
-    }
-    
-    .project-card {
-      background: var(--section-bg);
-      border-radius: 12px;
-      padding: 1.5rem;
-      border: 1px solid rgba(0, 255, 204, 0.3);
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-      margin: 0 auto;
-      max-width: 350px;
-    }
-    
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(
-        to bottom right,
-        rgba(0, 255, 204, 0.1) 0%,
-        rgba(255, 0, 170, 0.05) 50%,
-        transparent 100%
-      );
-      transform: rotate(30deg);
-      pointer-events: none;
-    }
-    
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 30px rgba(0, 255, 204, 0.3);
-      border-color: var(--primary);
-    }
-    
-    h1, h2, h3, h4 {
-      font-family: 'Orbitron', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    h1 {
-      font-size: 3.8rem;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      margin-bottom: 1.5rem;
-      text-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
-      animation: pulse 2.5s infinite alternate;
-    }
-    
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.02); }
-    }
-    
-    h2 {
-      font-size: 2.5rem;
-      color: var(--primary);
-      margin: 3rem auto 1.5rem;
-      position: relative;
-      display: inline-block;
-      max-width: 100%;
-    }
-    
-    h2::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 4px;
-      bottom: -10px;
-      left: 0;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      transform: translateX(-50%);
-      left: 50%;
-    }
-    
-    h3, h4 {
-      color: var(--accent);
-      margin-top: 0;
-    }
-    
-    p, li {
-      font-size: 1.1rem;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    a {
-      color: var(--primary);
-      text-decoration: underline;
-    }
-    
-    a:hover {
-      color: var(--light);
-    }
-    
-    ul {
-      list-style: none;
-      padding: 0;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    ul li:before {
-      content: "• ";
-      color: var(--accent);
-    }
-    
-    img {
-      max-width: 100%;
-      height: auto;
-      margin: 1rem auto;
-      display: block;
-      border: 2px solid var(--primary);
-      transition: all 0.5s ease;
-      border-radius: 8px;
-    }
-    
-    img:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 20px var(--primary);
-    }
-    
-    iframe {
-      width: 100%;
-      max-width: 560px;
-      height: 315px;
-      margin: 1rem auto;
-      display: block;
-      border: 2px solid var(--primary);
-      border-radius: 8px;
-    }
-    
-    .image-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin: 2rem auto;
-      max-width: 1000px;
-    }
-    
-    .image-grid img {
-      width: 100%;
-      height: auto;
-      border: 2px solid var(--primary);
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-      transition: transform 0.3s ease;
-      animation: fadeInImg 0.5s ease-in;
-    }
-    
-    .image-grid img:hover {
-      transform: scale(1.03);
-    }
-    
-    .image-grid img:nth-child(1) { animation-delay: 0.1s; }
-    .image-grid img:nth-child(2) { animation-delay: 0.2s; }
-    .image-grid img:nth-child(3) { animation-delay: 0.3s; }
-    .image-grid img:nth-child(4) { animation-delay: 0.4s; }
-    .image-grid img:nth-child(5) { animation-delay: 0.5s; }
-    .image-grid img:nth-child(6) { animation-delay: 0.6s; }
-    .image-grid img:nth-child(7) { animation-delay: 0.7s; }
-    .image-grid img:nth-child(8) { animation-delay: 0.8s; }
-    .image-grid img:nth-child(9) { animation-delay: 0.9s; }
-    
-    @keyframes fadeInImg {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .tech-badge {
-      display: inline-block;
-      background: rgba(0,0,0,0.5);
-      border: 1px solid var(--primary);
-      color: var(--primary);
-      padding: 0.5rem 1.2rem;
-      border-radius: 20px;
-      margin: 0.4rem;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: all 0.3s ease;
-    }
-    
-    .tech-badge:hover {
-      background: var(--primary);
-      color: var(--dark);
-      transform: scale(1.1);
-    }
-    
-    .status-indicator {
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      margin-right: 8px;
-    }
-    
-    .status-planned {
-      background: #ffcc00;
-      box-shadow: 0 0 10px #ffcc00;
-    }
-    
-    .status-in-progress {
-      background: #00ccff;
-      box-shadow: 0 0 10px #00ccff;
-    }
-    
-    .status-completed {
-      background: #00ff66;
-      box-shadow: 0 0 10px #00ff66;
-    }
-    
-    .status-proposal {
-      background: #ff66cc;
-      box-shadow: 0 0 10px #ff66cc;
-    }
-    
-    .status-ongoing {
-      background: #ff9900;
-      box-shadow: 0 0 10px #ff9900;
-    }
-    
-    .twitch-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 2rem;
-      font-size: 1.2rem;
-      color: var(--primary);
-    }
-    
-    .twitch-link img {
-      border-radius: 50%;
-      margin-right: 1rem;
-    }
-    
-    .section {
-      background: var(--section-bg);
-      padding: 2.5rem;
-      border-radius: 12px;
-      margin: 2rem auto;
-      border-left: 4px solid var(--primary);
-      max-width: 1000px;
-    }
-    
-    .highlight-section {
-      background: linear-gradient(135deg, rgba(0, 255, 204, 0.1), rgba(255, 0, 170, 0.1));
-      border: 2px solid var(--primary);
-      box-shadow: var(--neon-glow);
-      padding: 3rem;
-      animation: glowFade 4s infinite alternate;
-    }
-    
-    @keyframes glowFade {
-      0% { box-shadow: 0 0 10px var(--primary); }
-      100% { box-shadow: 0 0 20px var(--primary), 0 0 30px var(--secondary); }
-    }
-    
-    footer {
-      text-align: center;
-      padding: 3rem 1rem;
-      background: rgba(0,0,0,0.9);
-      margin-top: 4rem;
-      border-top: 1px solid rgba(0, 255, 204, 0.2);
-    }
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
 
-    footer p {
-      margin: 0.5rem auto;
-      font-size: 1rem;
-      max-width: 800px;
-      text-align: center;
-    }
+        .card:hover {
+            transform: translateY(-5px);
+        }
 
-    footer a {
-      color: var(--primary);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
+        .card img, .card video {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 2px solid #ddd;
+        }
 
-    footer a:hover {
-      color: var(--secondary);
-    }
+        .file-name {
+            padding: 15px;
+            font-size: 0.9em;
+            color: #666;
+            word-break: break-word;
+        }
 
-    .cta-button {
-      display: inline-block;
-      background: var(--primary);
-      color: var(--dark);
-      padding: 0.8rem 2rem;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: 700;
-      margin: 1rem auto;
-      transition: all 0.3s ease;
-      box-shadow: var(--neon-glow);
-    }
+        .bio-section {
+            text-align: center;
+            padding: 40px 20px;
+            background: white;
+            border-radius: 12px;
+            margin: 40px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
 
-    .cta-button:hover {
-      background: var(--secondary);
-      color: var(--light);
-      transform: scale(1.05);
-      box-shadow: 0 0 15px var(--secondary);
-    }
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 4px solid #2d2d2d;
+        }
 
-    .portfolio-highlight {
-      background: linear-gradient(135deg, rgba(0, 255, 204, 0.2), rgba(255, 0, 170, 0.2));
-      padding: 1rem;
-      border-radius: 8px;
-      margin: 1rem auto;
-      max-width: 800px;
-    }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 30px 0;
+        }
 
-    @media (max-width: 768px) {
-      header nav a {
-        margin: 0.3rem 0.5rem;
-        font-size: 0.9rem;
-      }
-      h1 { font-size: 2.8rem; }
-      h2 { font-size: 2rem; }
-      h3 { font-size: 1.4rem; }
-      iframe { height: 200px; }
-      .project-showcase { grid-template-columns: 1fr; }
-      .image-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      }
-      .section, .highlight-section { padding: 1.5rem; }
-      .social-banner a {
-        font-size: 1.5rem;
-      }
-      .cta-button {
-        padding: 0.6rem 1.5rem;
-        font-size: 0.9rem;
-      }
-    }
-  </style>
+        .social-link {
+            font-size: 1.8rem;
+            color: #2d2d2d;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: #0077B6;
+            transform: translateY(-3px);
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+        }
+
+        .figjam-embed {
+            width: 100%;
+            height: 600px;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body>
-  <div class="social-banner">
-    <a href="https://www.twitch.tv/djtrippiepea" target="_blank"><i class="fab fa-twitch"></i></a>
-    <a href="https://youtube.com/@djtrippiepea" target="_blank"><i class="fab fa-youtube"></i></a>
-    <a href="https://facebook.com/therealestablishedportal" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="https://instagram.com/therealestablishedportal" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://linkedin.com/in/hrptechadvisor" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a href="https://x.com/DJTrippiePea" target="_blank"><i class="fab fa-x-twitter"></i></a>
-  </div>
+    <div class="container">
+        <!-- Bio Section -->
+        <div class="bio-section">
+            <img src="me.jpg" alt="Profile" class="profile-pic">
+            <h1>Sean J. Smith DJTP</h1>
+            <p style="max-width: 600px; margin: 20px auto; color: #666;">
+                🔹 Full-Stack Developer 🔹 Creative Director 🔹 Digital Artist<br>
+                Building tomorrow's solutions with today's technology
+            </p>
+            
+            <div class="social-links">
+                <a href="https://instagram.com/therealestablishedportal" class="social-link" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://youtube.com/@djtrippiepea" class="social-link" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://twitch.tv/djtrippiepea" class="social-link" target="_blank">
+                    <i class="fab fa-twitch"></i>
+                </a>
+                <a href="https://linkedin.com/in/hrptechadvisor" class="social-link" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://x.com/DJTrippiePea" class="social-link" target="_blank">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+            </div>
+        </div>
 
-  <header>
-    <nav>
-      <a href="#hero">Home</a>
-      <a href="#skills">Skills</a>
-      <a href="#about">About</a>
-      <a href="#what-i-do">What I Do</a>
-      <a href="#ventures">Ventures</a>
-      <a href="#projects">Current Projects</a>
-      <a href="#future-projects">Future Projects</a>
-      <a href="#completed-projects">Completed Projects</a>
-      <a href="#music">Music</a>
-      <a href="#the-real-established-portal">The Real Established Portal</a>
-      <a href="#twitch">Twitch</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+        <!-- FigJam Projects -->
+        <h2>Design Process & Wireframes</h2>
+        <div class="grid">
+            <div class="card">
+                <iframe class="figjam-embed" 
+                        src="https://embed.figma.com/slides/V1CDH3NwonnFw1kGaFgB3t/Template-for-Pitch-Deck--Copy-?node-id=1-271&embed-host=share"></iframe>
+                <div class="file-name">Pitch Deck Template</div>
+            </div>
 
-  <main>
-    <section id="the-real-established-portal" class="section">
-      <h2>The Real Established Portal</h2>
-      <div class="image-grid">
-        <img src="RPrealestablished.jpg" alt="Real Established Logo">
-        <img src="Repdiamondsreal.jpg" alt="Diamonds Real Image">
-        <img src="minrep.jpg" alt="Minimal REP Image">
-        <img src="repdiamondreal.jpg" alt="REP Diamond Real Image">
-      </div>
-    </section>
+            <div class="card">
+                <iframe class="figjam-embed" 
+                        src="https://embed.figma.com/design/n2Sm9fLuUyeFIwe4EsHfmr/Beautify--Community-?node-id=0-1&embed-host=share"></iframe>
+                <div class="file-name">Community Platform Wireframe</div>
+            </div>
+        </div>
 
-    <section id="hero" class="section">
-      <h1>Sean J. Smith DJTP</h1>
-      <p style="font-size: 1.3rem;">
-        Where tech meets grit—crafting innovative solutions and compelling stories that drive impact.
-      </p>
-      <img src="me.jpg" alt="Sean J. Smith" style="width: 200px; border-radius: 50%; margin: 2rem auto; border: 3px solid var(--primary);">
-      <a href="#contact" class="cta-button">Hire Me Today</a>
-    </section>
+        <!-- Complete Image Collection -->
+        <h2>Brand Assets & Designs</h2>
+        <div class="grid">
+            <!-- Branding -->
+            <div class="card">
+                <img src="RPrealestablished.jpg" alt="Main Brand Logo">
+                <div class="file-name">RPrealestablished.jpg</div>
+            </div>
+            <div class="card">
+                <img src="Repdiamondsreal.jpg" alt="Diamond Design">
+                <div class="file-name">Repdiamondsreal.jpg</div>
+            </div>
+            <div class="card">
+                <img src="RepDiamondcolor.jpg" alt="Color Variation">
+                <div class="file-name">RepDiamondcolor.jpg</div>
+            </div>
+            <div class="card">
+                <img src="business%20rep.jpg" alt="Business Concept">
+                <div class="file-name">business rep.jpg</div>
+            </div>
+            <div class="card">
+                <img src="realestablishedportalRealEstateLogo.jpg" alt="Real Estate Logo">
+                <div class="file-name">realestablishedportalRealEstateLogo.jpg</div>
+            </div>
+            <div class="card">
+                <img src="diamondcompanyrep.jpg" alt="Corporate Design">
+                <div class="file-name">diamondcompanyrep.jpg</div>
+            </div>
+            <div class="card">
+                <img src="diamondsrepreal.jpg" alt="Realistic Diamonds">
+                <div class="file-name">diamondsrepreal.jpg</div>
+            </div>
+            <div class="card">
+                <img src="flag.jpg" alt="Flag Concept">
+                <div class="file-name">flag.jpg</div>
+            </div>
+            <div class="card">
+                <img src="flower....jpg" alt="Floral Variation 1">
+                <div class="file-name">flower....jpg</div>
+            </div>
+            <div class="card">
+                <img src="flower..jpg" alt="Floral Variation 2">
+                <div class="file-name">flower..jpg</div>
+            </div>
+            <div class="card">
+                <img src="flower.jpg" alt="Primary Floral">
+                <div class="file-name">flower.jpg</div>
+            </div>
+            <div class="card">
+                <img src="flowerll.jpg" alt="Floral Detail">
+                <div class="file-name">flowerll.jpg</div>
+            </div>
+            <div class="card">
+                <img src="flowerr.jpg" alt="Floral Right">
+                <div class="file-name">flowerr.jpg</div>
+            </div>
+            <div class="card">
+                <img src="FlowerReal%20established.jpg" alt="Established Flower">
+                <div class="file-name">FlowerReal established.jpg</div>
+            </div>
+            <div class="card">
+                <img src="FlowerReal%20established2.jpg" alt="Established Flower 2">
+                <div class="file-name">FlowerReal established2.jpg</div>
+            </div>
+            <div class="card">
+                <img src="image.jpg" alt="Misc Image">
+                <div class="file-name">image.jpg</div>
+            </div>
+            <div class="card">
+                <img src="minrep.jpg" alt="Minimal Design">
+                <div class="file-name">minrep.jpg</div>
+            </div>
+            <div class="card">
+                <img src="photo_5062598267170303398_y.jpg" alt="Misc Photo">
+                <div class="file-name">photo_5062598267170303398_y.jpg</div>
+            </div>
+            <div class="card">
+                <img src="practice_image_302.png" alt="Practice Concept 1">
+                <div class="file-name">practice_image_302.png</div>
+            </div>
+            <div class="card">
+                <img src="practice_image_303.png" alt="Practice Concept 2">
+                <div class="file-name">practice_image_303.png</div>
+            </div>
+            <div class="card">
+                <img src="practice_image_307.jpg" alt="Practice Concept 3">
+                <div class="file-name">practice_image_307.jpg</div>
+            </div>
+            <div class="card">
+                <img src="real.jpg" alt="Real Logo">
+                <div class="file-name">real.jpg</div>
+            </div>
+            <div class="card">
+                <img src="realestabdiampnd.jpg" alt="Established Diamond">
+                <div class="file-name">realestabdiampnd.jpg</div>
+            </div>
+            <div class="card">
+                <img src="realportal.jpg" alt="Portal Concept">
+                <div class="file-name">realportal.jpg</div>
+            </div>
+            <div class="card">
+                <img src="realrepdiamond.jpg" alt="Diamond Logo">
+                <div class="file-name">realrepdiamond.jpg</div>
+            </div>
+            <div class="card">
+                <img src="realwithportriat.jpg" alt="Portrait Logo">
+                <div class="file-name">realwithportriat.jpg</div>
+            </div>
+            <div class="card">
+                <img src="recordback.jpg" alt="Record Background">
+                <div class="file-name">recordback.jpg</div>
+            </div>
+            <div class="card">
+                <img src="rep.jpg" alt="Rep Logo">
+                <div class="file-name">rep.jpg</div>
+            </div>
+            <div class="card">
+                <img src="rep1.jpg" alt="Rep Logo 2">
+                <div class="file-name">rep1.jpg</div>
+            </div>
+            <div class="card">
+                <img src="repbusinees.jpg" alt="Business Rep 3">
+                <div class="file-name">repbusinees.jpg</div>
+            </div>
+            <div class="card">
+                <img src="repcartoon.jpg" alt="Cartoon Rep">
+                <div class="file-name">repcartoon.jpg</div>
+            </div>
+            <div class="card">
+                <img src="repd.jpg" alt="Rep D">
+                <div class="file-name">repd.jpg</div>
+            </div>
+            <div class="card">
+                <img src="repdiamgreat.jpg" alt="Great Diamond">
+                <div class="file-name">repdiamgreat.jpg</div>
+            </div>
+            <div class="card">
+                <img src="repdiamnd.jpg" alt="Diamond Concept">
+                <div class="file-name">repdiamnd.jpg</div>
+            </div>
+            <div class="card">
+                <img src="repdiamond.jpg" alt="Diamond Rep">
+                <div class="file-name">repdiamond.jpg</div>
+            </div>
+            <div class="card">
+                <img src="repdiamond2.jpg" alt="Diamond Rep 2">
+                <div class="file-name">repdiamond2.jpg</div>
+            </div>
+            <div class="card">
+                <img src="repdiamondreal.jpg" alt="Real Diamond">
+                <div class="file-name">repdiamondreal.jpg</div>
+            </div>
+            <div class="card">
+                <img src="repdiamonds.jpg" alt="Diamonds">
+                <div class="file-name">repdiamonds.jpg</div>
+            </div>
+            <div class="card">
+                <img src="repdiamondsbusiness.jpg" alt="Business Diamonds">
+                <div class="file-name">repdiamondsbusiness.jpg</div>
+            </div>
+            <div class="card">
+                <img src="repdiamons.jpg" alt="Diamonds 2">
+                <div class="file-name">repdiamons.jpg</div>
+            </div>
+            <div class="card">
+                <img src="repedit.jpg" alt="Edited Version">
+                <div class="file-name">repedit.jpg</div>
+            </div>
+            <div class="card">
+                <img src="replogo.jpg" alt="Main Logo">
+                <div class="file-name">replogo.jpg</div>
+            </div>
+            <div class="card">
+                <img src="replogodiamonds.jpg" alt="Logo Diamonds">
+                <div class="file-name">replogodiamonds.jpg</div>
+            </div>
+            <div class="card">
+                <img src="reportriat2.jpg" alt="Portrait 2">
+                <div class="file-name">reportriat2.jpg</div>
+            </div>
+            <div class="card">
+                <img src="repportaldiamond.jpg" alt="Portal Diamond">
+                <div class="file-name">repportaldiamond.jpg</div>
+            </div>
+            <div class="card">
+                <img src="repportrait.jpg" alt="Portrait 3">
+                <div class="file-name">repportrait.jpg</div>
+            </div>
+            <div class="card">
+                <img src="Reprealdiamn.jpg" alt="Real Diamond 2">
+                <div class="file-name">Reprealdiamn.jpg</div>
+            </div>
+            <div class="card">
+                <img src="RepRealEstabl.png" alt="Established Logo">
+                <div class="file-name">RepRealEstabl.png</div>
+            </div>
+            <div class="card">
+                <img src="repposter.png" alt="Poster">
+                <div class="file-name">repposter.png</div>
+            </div>
+            <div class="card">
+                <img src="repss.jpg" alt="SS Logo">
+                <div class="file-name">repss.jpg</div>
+            </div>
+            <div class="card">
+                <img src="Screen%20Shot%202023-03-12%20at%208.43.40%20PM.png" alt="Screenshot">
+                <div class="file-name">Screen Shot 2023-03-12 at 8.43.40 PM.png</div>
+            </div>
+            <div class="card">
+                <img src="Tenacity.png" alt="Tenacity Graphic">
+                <div class="file-name">Tenacity.png</div>
+            </div>
+            <div class="card">
+                <img src="Untitled%20design.png11.png" alt="Untitled Design">
+                <div class="file-name">Untitled design.png11.png</div>
+            </div>
+        </div>
 
-    <section id="skills" class="section highlight-section">
-      <h2>💡 Skills & Experience</h2>
-      <p style="font-size: 1.2rem; margin-bottom: 2rem;">
-        Leveraging expertise in cutting-edge technologies to deliver scalable, user-focused solutions.
-      </p>
-      <div class="portfolio-highlight">
-        <p><strong>Proven Track Record:</strong> Successfully delivered apps, blockchain solutions, and creative projects with measurable outcomes.</p>
-      </div>
-      <ul>
-        <li><strong>App Design & Development:</strong> Building functional and user-friendly apps (e.g., The Portal, Nutrition Tracker)</li>
-        <li><strong>Project Management:</strong> Creating roadmaps, timelines, and breaking down tasks into manageable steps</li>
-        <li><strong>Cryptocurrency & Blockchain:</strong> Creating and planning for Portal Eco Coin</li>
-        <li><strong>AI & Education:</strong> Proposing AI integration projects for educational purposes with a focus on academic integrity</li>
-        <li><strong>Software Development & Testing:</strong> Working with Shunting Yard Algorithm, exception handling, and unit testing</li>
-        <li><strong>UI/UX Design:</strong> Refining layouts for better accessibility, usability, and visual consistency (e.g., Android app)</li>
-      </ul>
-      <h3>Tools & Technologies</h3>
-      <ul>
-        <li><strong>Languages:</strong> C++, Python, Java, JavaScript, GDScript</li>
-        <li><strong>Frameworks:</strong> wxWidgets, Android Studio, Flutter, React</li>
-        <li><strong>Software:</strong> Visual Studio, Visual Studio Code, GitHub, SharePoint, Xilinx ISE, Figma</li>
-        <li><strong>Platforms:</strong> Full Sail University, Medium, LinkedIn, AWS Basics</li>
-      </ul>
-    </section>
+        <!-- Video Portfolio -->
+        <h2>Video Content</h2>
+        <div class="grid">
+            <div class="card">
+                <video controls>
+                    <source src="document_5181506085571265683.mp4" type="video/mp4">
+                </video>
+                <div class="file-name">document_5181506085571265683.mp4</div>
+            </div>
+            <div class="card">
+                <video controls>
+                    <source src="Motivational%20Quotes%20Instagram%20Reel%20Video.mp4" type="video/mp4">
+                </video>
+                <div class="file-name">Motivational Quotes Instagram Reel Video.mp4</div>
+            </div>
+            <div class="card">
+                <video controls>
+                    <source src="Qaulitative.mp4" type="video/mp4">
+                </video>
+                <div class="file-name">Qaulitative.mp4</div>
+            </div>
+            <div class="card">
+                <video controls>
+                    <source src="Trippie%20Pea%20Official%20ADD.mp4" type="video/mp4">
+                </video>
+                <div class="file-name">Trippie Pea Official ADD.mp4</div>
+            </div>
+            <div class="card">
+                <video controls>
+                    <source src="Untitled%20design.mp4" type="video/mp4">
+                </video>
+                <div class="file-name">Untitled design.mp4</div>
+            </div>
+            <div class="card">
+                <video controls>
+                    <source src="Untitled%20design2.mp4" type="video/mp4">
+                </video>
+                <div class="file-name">Untitled design2.mp4</div>
+            </div>
+            <div class="card">
+                <video controls>
+                    <source src="Untitled%20design3.mp4" type="video/mp4">
+                </video>
+                <div class="file-name">Untitled design3.mp4</div>
+            </div>
+            <div class="card">
+                <video controls>
+                    <source src="Untitled%20design4.mp4" type="video/mp4">
+                </video>
+                <div class="file-name">Untitled design4.mp4</div>
+            </div>
+            <div class="card">
+                <video controls>
+                    <source src="Untitled%20design6.mp4" type="video/mp4">
+                </video>
+                <div class="file-name">Untitled design6.mp4</div>
+            </div>
+            <div class="card">
+                <video controls>
+                    <source src="Untitled%20design7.mp4" type="video/mp4">
+                </video>
+                <div class="file-name">Untitled design7.mp4</div>
+            </div>
+            <div class="card">
+                <video controls>
+                    <source src="Untitled%20design8.mp4" type="video/mp4">
+                </video>
+                <div class="file-name">Untitled design8.mp4</div>
+            </div>
+        </div>
 
-    <section id="about" class="section highlight-section">
-      <h2>ℹ️ Who I Am</h2>
-      <p style="font-size: 1.2rem;">
-        Sean J. Smith DJTP, founder of The Real Established Portal. With an Associate’s in Computer Science from Full Sail University and a PhD in progress, I combine technical expertise with a passion for innovation. My self-driven approach has led to a diverse portfolio of apps, blockchain projects, and creative ventures—ready to tackle your next challenge.
-      </p>
-      <img src="Reprealdiamn.jpg" alt="Diamond Project Image" style="max-width: 300px;">
-      <a href="https://linkedin.com/in/hrptechadvisor" target="_blank" class="cta-button">View My LinkedIn</a>
-    </section>
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox">
+            <span class="close-btn" onclick="closeLightbox()">&times;</span>
+            <img class="lightbox-content" id="lightbox-image">
+            <video class="lightbox-content" id="lightbox-video" controls></video>
+        </div>
+    </div>
 
-    <section id="what-i-do" class="section">
-      <h2>🛠️ What I Do</h2>
-      <p>
-        As a Full Sail University graduate with an Associate’s in Computer Science, I specialize in building robust websites, developing mobile apps, and solving complex technical challenges. Currently pursuing a PhD, I’m also enrolled in Harvard’s CS50 program (accessible free via <a href="https://cs50.harvard.edu/x/2020/psets/1/hello/">CS50</a>) to sharpen my skills. My work blends technical precision with creative storytelling, delivering solutions that resonate—all achieved with resourcefulness and zero budget. Let’s build something extraordinary together.
-      </p>
-    </section>
+    <script>
+        // Lightbox functionality
+        function openLightbox(src, isVideo) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            const lightboxVideo = document.getElementById('lightbox-video');
 
-    <section id="ventures" class="section">
-      <h2>🚀 My Ventures</h2>
-      <div class="project-showcase">
-        <div class="project-card">
-          <h3><i class="fas fa-gamepad"></i> HighSail Game Studio</h3>
-          <p>Cutting-edge game development studio pushing boundaries in interactive entertainment and immersive technologies.</p>
-          <div class="tech-badges">
-            <span class="tech-badge">Unity</span>
-            <span class="tech-badge">Unreal</span>
-            <span class="tech-badge">WebGL</span>
-            <span class="tech-badge">GDScript</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <h3><i class="fas fa-microchip"></i> HRP Tech Advisor</h3>
-          <p>Technology consulting firm specializing in innovative solutions for businesses navigating digital transformation.</p>
-          <div class="tech-badges">
-            <span class="tech-badge">AI</span>
-            <span class="tech-badge">Blockchain</span>
-            <span class="tech-badge">IoT</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <h3><i class="fas fa-users"></i> BiFrost Collective</h3>
-          <p>Creative collective merging technology and art to build transformative digital experiences.</p>
-          <div class="tech-badges">
-            <span class="tech-badge">NFTs</span>
-            <span class="tech-badge">VR</span>
-            <span class="tech-badge">AR</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <h3><i class="fas fa-coins"></i> BitFrost Coin</h3>
-          <p>Next-generation cryptocurrency designed for speed, security, and real-world utility.</p>
-          <div class="tech-badges">
-            <span class="tech-badge">Blockchain</span>
-            <span class="tech-badge">Smart Contracts</span>
-            <span class="tech-badge">Web3</span>
-          </div>
-        </div>
-      </div>
-    </section>
+            if(isVideo) {
+                lightboxVideo.src = src;
+                lightboxVideo.style.display = 'block';
+                lightboxImage.style.display = 'none';
+            } else {
+                lightboxImage.src = src;
+                lightboxImage.style.display = 'block';
+                lightboxVideo.style.display = 'none';
+            }
+            
+            lightbox.style.display = 'block';
+        }
 
-    <section id="projects" class="section">
-      <h2>🛠️ Current Projects</h2>
-      <div class="project-showcase">
-        <div class="project-card">
-          <h3><i class="fas fa-brain"></i> The Portal</h3>
-          <p>An all-in-one app for health tracking, smart shopping, life coaching, and AI-driven insights, featuring health & nutrition scanners, shopping assistance, gas price finder, and premium services. Currently in wireframe stage using FigJam.</p>
-          <div style="margin: 1rem 0;">
-            <span class="status-indicator status-in-progress"></span>
-            <span>In Development</span>
-          </div>
-          <div class="tech-badges">
-            <span class="tech-badge">Swift</span>
-            <span class="tech-badge">Kotlin</span>
-            <span class="tech-badge">ML</span>
-            <span class="tech-badge">FigJam</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <h3><i class="fas fa-utensils"></i> Nutrition Tracker</h3>
-          <p>An app to track and manage nutrition, integrating features like food scanning and personalized health recommendations.</p>
-          <div style="margin: 1rem 0;">
-            <span class="status-indicator status-in-progress"></span>
-            <span>In Development</span>
-          </div>
-          <div class="tech-badges">
-            <span class="tech-badge">Flutter</span>
-            <span class="tech-badge">Firebase</span>
-            <span class="tech-badge">AI</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <h3><i class="fas fa-heartbeat"></i> WellnessPro App</h3>
-          <p>Comprehensive wellness platform for PHP providers and fitness coaches featuring AI-driven health insights, client management, and treatment tracking.</p>
-          <div style="margin: 1rem 0;">
-            <span class="status-indicator status-in-progress"></span>
-            <span>In Development</span>
-          </div>
-          <div class="tech-badges">
-            <span class="tech-badge">Flutter</span>
-            <span class="tech-badge">Firebase</span>
-            <span class="tech-badge">AI</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <h3><i class="fas fa-home"></i> RentEase Platform</h3>
-          <p>Blockchain-based property management system connecting landlords and tenants with smart contracts, automated payments, and maintenance tracking.</p>
-          <div style="margin: 1rem 0;">
-            <span class="status-indicator status-in-progress"></span>
-            <span>In Development</span>
-          </div>
-          <div class="tech-badges">
-            <span class="tech-badge">React</span>
-            <span class="tech-badge">Solidity</span>
-            <span class="tech-badge">Node.js</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <h3><i class="fas fa-briefcase"></i> LinkedIn Profile & Resume Development</h3>
-          <p>Building a standout LinkedIn profile and resume showcasing skills and achievements, aiming to surpass industry benchmarks.</p>
-          <div style="margin: 1rem 0;">
-            <span class="status-indicator status-in-progress"></span>
-            <span>In Development</span>
-          </div>
-          <div class="tech-badges">
-            <span class="tech-badge">LinkedIn</span>
-            <span class="tech-badge">Documentation</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <h3><i class="fas fa-calculator"></i> Calculator Application</h3>
-          <p>A calculator app built with a button factory, processor singleton, and exception handling, using the Shunting Yard Algorithm. Facing challenges with expression parsing.</p>
-          <div style="margin: 1rem 0;">
-            <span class="status-indicator status-in-progress"></span>
-            <span>In Development</span>
-          </div>
-          <div class="tech-badges">
-            <span class="tech-badge">C++</span>
-            <span class="tech-badge">wxWidgets</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <h3><i class="fas fa-mobile-alt"></i> Android Studio Practice Project</h3>
-          <p>Developing an Android app with rounded corners, layout refinement, and accessibility improvements.</p>
-          <div style="margin: 1rem 0;">
-            <span class="status-indicator status-in-progress"></span>
-            <span>In Development</span>
-          </div>
-          <div class="tech-badges">
-            <span class="tech-badge">Java</span>
-            <span class="tech-badge">Android Studio</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <h3><i class="fas fa-video"></i> Breakout</h3>
-          <p>A web series idea with gritty tales of ambition, planning a free GitHub Pages prototype.</p>
-          <div style="margin: 1rem 0;">
-            <span class="status-indicator status-in-progress"></span>
-            <span>In Development</span>
-          </div>
-          <div class="tech-badges">
-            <span class="tech-badge">HTML</span>
-            <span class="tech-badge">CSS</span>
-            <span class="tech-badge">JavaScript</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <h3><i class="fas fa-pen"></i> Blog Posts on Medium</h3>
-          <p>Writing insightful blog posts on computer science, technology, and ongoing projects.</p>
-          <div style="margin: 1rem 0;">
-            <span class="status-indicator status-ongoing"></span>
-            <span>Ongoing</span>
-          </div>
-          <div class="tech-badges">
-            <span class="tech-badge">Writing</span>
-            <span class="tech-badge">Medium</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <h3><i class="fas fa-flask"></i> Lab Projects</h3>
-          <p>Academic labs including Calculator Button Factory, Processor Singleton, Calculator Tests, and LED Brightness Optimization.</p>
-          <div style="margin: 1rem 0;">
-            <span class="status-indicator status-in-progress"></span>
-            <span>In Development</span>
-          </div>
-          <div class="tech-badges">
-            <span class="tech-badge">C++</span>
-            <span class="tech-badge">Embedded C</span>
-            <span class="tech-badge">Xilinx</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <h3><i class="fas fa-film"></i> This Site</h3>
-          <p>Built from scratch at hrptechadvisor.github.io to showcase my skills and land work.</p>
-          <div style="margin: 1rem 0;">
-            <span class="status-indicator status-completed"></span>
-            <span>Completed</span>
-          </div>
-          <div class="tech-badges">
-            <span class="tech-badge">HTML</span>
-            <span class="tech-badge">CSS</span>
-            <span class="tech-badge">JavaScript</span>
-          </div>
-        </div>
-      </div>
-    </section>
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+            const video = document.getElementById('lightbox-video');
+            video.pause();
+            video.currentTime = 0;
+        }
 
-    <section id="future-projects" class="section">
-      <h2>📅 Future Projects</h2>
-      <div class="project-showcase">
-        <div class="project-card">
-          <h3><i class="fas fa-chart-line"></i> Stock Prediction App</h3>
-          <p>A simple stock prediction app with a search bar for users to receive predictions for various time intervals (1 minute to 1 year).</p>
-          <div style="margin: 1rem 0;">
-            <span class="status-indicator status-planned"></span>
-            <span>Planned</span>
-          </div>
-          <div class="tech-badges">
-            <span class="tech-badge">Python</span>
-            <span class="tech-badge">TensorFlow</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <h3><i class="fas fa-coins"></i> Portal Eco Coin (PEC)</h3>
-          <p>A cryptocurrency project named Portal Eco Coin, focused on sustainability and eco-friendly applications.</p>
-          <div style="margin: 1rem 0;">
-            <span class="status-indicator status-planned"></span>
-            <span>Planned</span>
-          </div>
-          <div class="tech-badges">
-            <span class="tech-badge">Blockchain</span>
-            <span class="tech-badge">Smart Contracts</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <h3><i class="fas fa-robot"></i> AI Integration for Education</h3>
-          <p>A proposal for AI integration in education, using a Discord bot with custom knowledge base, SharePoint and GitHub integration, and academic integrity rules.</p>
-          <div style="margin: 1rem 0;">
-            <span class="status-indicator status-proposal"></span>
-            <span>Proposal Stage</span>
-          </div>
-          <div class="tech-badges">
-            <span class="tech-badge">Python</span>
-            <span class="tech-badge">Discord API</span>
-            <span class="tech-badge">AI</span>
-          </div>
-        </div>
-      </div>
-    </section>
+        // Add click handlers to all media
+        document.querySelectorAll('img, video').forEach(media => {
+            media.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const isVideo = this.tagName.toLowerCase() === 'video';
+                openLightbox(this.currentSrc || this.src, isVideo);
+            });
+        });
 
-    <section id="completed-projects" class="section">
-      <h2>✅ Completed Projects</h2>
-      <div class="project-showcase">
-        <div class="project-card">
-          <h3><i class="fas fa-home"></i> Landlord Community App</h3>
-          <p>A community app designed for landlords to manage properties and communicate with tenants.</p>
-          <div style="margin: 1rem 0;">
-            <span class="status-indicator status-completed"></span>
-            <span>Completed</span>
-          </div>
-          <div class="tech-badges">
-            <span class="tech-badge">JavaScript</span>
-            <span class="tech-badge">Node.js</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <h3><i class="fas fa-gamepad"></i> Conway's Game of Life</h3>
-          <p>A simulation of Conway’s Game of Life, a cellular automaton that evolves based on set rules.</p>
-          <div style="margin: 1rem 0;">
-            <span class="status-indicator status-completed"></span>
-            <span>Completed</span>
-          </div>
-          <div class="tech-badges">
-            <span class="tech-badge">Python</span>
-            <span class="tech-badge">Pygame</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <h3><i class="fas fa-code"></i> GDScript Projects</h3>
-          <p>Multiple game development projects using Godot Engine and GDScript.</p>
-          <div style="margin: 1rem 0;">
-            <span class="status-indicator status-completed"></span>
-            <span>Completed</span>
-          </div>
-          <div class="tech-badges">
-            <span class="tech-badge">GDScript</span>
-            <span class="tech-badge">Godot</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <h3><i class="fas fa-film"></i> Street Echoes</h3>
-          <p>A short film shot on my phone, capturing raw city vibes. Used HTML/CSS skills from Full Sail to mock up a promo site.</p>
-          <div style="margin: 1rem 0;">
-            <span class="status-indicator status-completed"></span>
-            <span>Completed</span>
-          </div>
-          <div class="tech-badges">
-            <span class="tech-badge">HTML</span>
-            <span class="tech-badge">CSS</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="music" class="section">
-      <h2>🎵 Featured Music</h2>
-      <p>Listen to original tracks produced by Sean J. Smith DJTP:</p>
-      <iframe
-        src="https://www.bandlab.com/embed/?id=064f87ed-b119-f011-aaa7-0022484892d6"
-        sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-        allowfullscreen>
-      </iframe>
-      <p>Also check out more music on YouTube:</p>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/jup9oaq7CV0?si=9rO0aKRbSs612dcF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </section>
-
-    <section id="twitch" class="section">
-      <h2>📺 Join Me Live on Twitch</h2>
-      <p>Catch me streaming live on Twitch! Join the fun and interact with me in real-time:</p>
-      <div class="twitch-link">
-        <a href="https://www.twitch.tv/djtrippiepea" target="_blank">Follow me on Twitch @DJTrippiePea</a>
-      </div>
-    </section>
-
-    <section id="faq" class="section">
-      <h2>❓ Frequently Asked Questions</h2>
-      <ul>
-        <li><strong>Need a website?</strong> I can build a high-quality site using GitHub Pages—contact me to discuss your vision!</li>
-        <li><strong>Hiring?</strong> I’m available for full-time, part-time, or freelance roles. Let’s solve your tech challenges together.</li>
-        <li><strong>Why free?</strong> My Full Sail education taught me to innovate without resources—delivering value is my priority.</li>
-      </ul>
-    </section>
-
-    <section id="contact" class="section">
-      <h2>📬 Contact Me</h2>
-      <p>Ready to collaborate? Reach out through any of these channels:</p>
-      <ul>
-        <li>Phone: <a href="tel:2248289966">224-828-9966</a></li>
-        <li>Email: <a href="mailto:sjsmith5@student.fullsail.edu">sjsmith5@student.fullsail.edu</a></li>
-        <li>Personal Email: <a href="mailto:djtrippiepea@gmail.com">djtrippiepea@gmail.com</a></li>
-        <li>Facebook: <a href="https://facebook.com/therealestablishedportal" target="_blank">facebook.com/therealestablishedportal</a></li>
-        <li>Instagram: <a href="https://instagram.com/therealestablishedportal" target="_blank">instagram.com/therealestablishedportal</a></li>
-        <li>LinkedIn: <a href="https://linkedin.com/in/hrptechadvisor" target="_blank">linkedin.com/in/hrptechadvisor</a></li>
-        <li>X: <a href="https://x.com/DJTrippiePea" target="_blank">x.com/DJTrippiePea</a></li>
-        <li>YouTube: <a href="https://youtube.com/@djtrippiepea" target="_blank">youtube.com/@djtrippiepea</a></li>
-        <li>Twitch: <a href="https://www.twitch.tv/djtrippiepea" target="_blank">www.twitch.tv/djtrippiepea</a></li>
-      </ul>
-      <a href="mailto:sjsmith5@student.fullsail.edu" class="cta-button">Send Me a Message</a>
-    </section>
-  </main>
-
-  <footer>
-    <p><a href="https://hrptechadvisor.github.io">The Real Established Portal</a></p>
-    <p>© 2025 The Real Established Portal. All rights reserved.</p>
-    <p>Designed & Developed by Sean J. Smith DJTP</p>
-  </footer>
-
-  <script>
-    let lastScrollTop = 0;
-    window.addEventListener('scroll', () => {
-      const socialBanner = document.querySelector('.social-banner');
-      const header = document.querySelector('header');
-      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-      if (currentScroll > lastScrollTop && currentScroll > 100) {
-        socialBanner.classList.add('hidden');
-        header.classList.add('hidden');
-      } else {
-        socialBanner.classList.remove('hidden');
-        header.classList.remove('hidden');
-      }
-      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-    });
-  </script>
+        // Close lightbox on outside click
+        window.onclick = function(event) {
+            const lightbox = document.getElementById('lightbox');
+            if(event.target === lightbox) {
+                closeLightbox();
+            }
+        };
+    </script>
 </body>
 </html>
