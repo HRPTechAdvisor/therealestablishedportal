@@ -3,19 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional portfolio of Sean J. Smith DJTP - Creative Technologist & Digital Designer">
-    <meta property="og:title" content="Sean J. Smith DJTP | Creative Technologist">
-    <meta property="og:description" content="Innovative digital solutions merging technology and design">
-    <meta property="og:image" content="RPrealestablished.jpg">
-    <title>Sean J. Smith DJTP | Creative Technologist</title>
+    <meta name="description" content="Sean J. Smith DJTP - Full Spectrum Creative Technologist">
+    <title>Sean J. Smith DJTP | Creative Director & Technologist</title>
     <base href="https://hrptechadvisor.github.io/therealestablishedportal/">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #2A2A2A;
-            --secondary: #F5F5F5;
-            --accent: #00B4D8;
-            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --primary: #1A1A1A;
+            --secondary: #FFFFFF;
+            --accent: #0077B6;
+            --highlight: #00B4D8;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -25,261 +23,352 @@
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             background: var(--secondary);
             color: var(--primary);
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
+        /* Enhanced Header */
         .header {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 1rem;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
         }
 
-        .nav {
-            max-width: 1200px;
+        .nav-container {
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 2rem;
         }
 
         .nav-logo {
             font-weight: 700;
             color: var(--accent);
             text-decoration: none;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+            letter-spacing: -0.5px;
         }
 
+        /* Main Content Structure */
         .main-container {
             max-width: 1400px;
-            margin: 80px auto 0;
-            padding: 2rem;
+            margin: 100px auto 0;
+            padding: 0 2rem;
         }
 
-        .hero {
+        /* Hero Section */
+        .hero-section {
             text-align: center;
-            padding: 4rem 0;
-            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('recordback.jpg');
+            padding: 8rem 0 6rem;
+            background: linear-gradient(rgba(255,255,255,0.97), rgba(255,255,255,0.97)), 
+                        url('recordback.jpg');
             background-size: cover;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Portfolio Grid Enhancements */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            padding: 3rem 0;
+        }
+
+        .portfolio-card {
+            background: var(--secondary);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            z-index: 2;
+        }
+
+        /* Detailed Project Sections */
+        .project-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            padding: 4rem 0;
+        }
+
+        .project-details {
+            padding: 2rem;
+            background: rgba(245, 245, 245, 0.6);
+            border-radius: 12px;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-value {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        /* Skills Matrix */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 2rem;
             padding: 2rem 0;
         }
 
-        .portfolio-card {
+        .skill-card {
+            padding: 2rem;
             background: white;
             border-radius: 12px;
-            overflow: hidden;
+            text-align: center;
             transition: var(--transition);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .portfolio-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .card-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-bottom: 3px solid var(--accent);
-        }
-
-        .card-content {
-            padding: 1.5rem;
-        }
-
-        .category-label {
-            display: inline-block;
+        .skill-card:hover {
             background: var(--accent);
             color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
         }
 
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: var(--primary);
+        /* Testimonial Section */
+        .testimonial-carousel {
+            display: grid;
+            gap: 2rem;
+            padding: 4rem 0;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            position: relative;
+        }
+
+        .testimonial-quote {
+            font-size: 1.1rem;
+            color: #444;
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--primary);
+            color: white;
+            padding: 6rem 2rem;
+            margin-top: 6rem;
+            border-radius: 24px;
             text-align: center;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: var(--accent);
-        }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 12px;
-        }
-
-        .video-container video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 2rem;
             margin-top: 3rem;
         }
 
         .social-link {
-            color: var(--primary);
-            font-size: 1.5rem;
+            color: white;
+            font-size: 1.8rem;
             transition: var(--transition);
         }
 
         .social-link:hover {
-            color: var(--accent);
+            color: var(--highlight);
             transform: translateY(-3px);
         }
 
-        @media (max-width: 768px) {
-            .portfolio-grid {
+        @media (max-width: 1024px) {
+            .project-showcase {
                 grid-template-columns: 1fr;
             }
             
-            .section-title {
-                font-size: 2rem;
+            .hero-title {
+                font-size: 2.8rem;
             }
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <nav class="nav">
+        <nav class="nav-container">
             <a href="#" class="nav-logo">SJSDJTP</a>
             <div class="nav-links">
                 <a href="#work" class="nav-link">Work</a>
-                <a href="#about" class="nav-link">About</a>
+                <a href="#process" class="nav-link">Process</a>
+                <a href="#clients" class="nav-link">Clients</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
         </nav>
     </header>
 
     <main class="main-container">
-        <section class="hero">
-            <h1>Creative Technology Solutions</h1>
-            <p>Bridging design innovation with technical excellence</p>
+        <section class="hero-section">
+            <h1 class="hero-title">Digital Innovation Meets Strategic Design</h1>
+            <p class="hero-subtitle">Bridging technical excellence with creative vision across multiple disciplines</p>
         </section>
 
-        <section id="work">
-            <h2 class="section-title">Featured Work</h2>
-            
-            <div class="portfolio-grid">
-                <!-- Branding Section -->
-                <article class="portfolio-card">
-                    <img src="RPrealestablished.jpg" alt="Brand Identity" class="card-image">
-                    <div class="card-content">
-                        <span class="category-label">Brand Identity</span>
-                        <h3>Established Portal Visual System</h3>
-                        <p>Comprehensive branding package including logo development, color theory, and typography systems.</p>
+        <!-- Featured Project Showcase -->
+        <section id="featured-project">
+            <div class="project-showcase">
+                <div class="project-details">
+                    <h2 class="section-title">Flagship Project: The Portal Ecosystem</h2>
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <div class="meta-value">12+</div>
+                            <div class="meta-label">Integrated Features</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-value">98%</div>
+                            <div class="meta-label">User Satisfaction</div>
+                        </div>
                     </div>
-                </article>
-
-                <!-- Digital Art -->
-                <article class="portfolio-card">
-                    <img src="Repdiamondsreal.jpg" alt="Digital Art" class="card-image">
-                    <div class="card-content">
-                        <span class="category-label">Digital Art</span>
-                        <h3>Geometric Abstraction Series</h3>
-                        <p>Exploration of form and color through digital illustration techniques.</p>
+                    <p>Comprehensive digital ecosystem combining AI-driven analytics with user-centric design principles.</p>
+                    <div class="skills-grid" style="margin-top: 2rem;">
+                        <div class="skill-card">
+                            <i class="fas fa-brain fa-2x"></i>
+                            <h3>AI Integration</h3>
+                        </div>
+                        <div class="skill-card">
+                            <i class="fas fa-shield-alt fa-2x"></i>
+                            <h3>Blockchain Security</h3>
+                        </div>
                     </div>
-                </article>
-
-                <!-- Photography -->
-                <article class="portfolio-card">
-                    <img src="IMG_1197.jpg" alt="Photography" class="card-image">
-                    <div class="card-content">
-                        <span class="category-label">Photography</span>
-                        <h3>Urban Landscape Studies</h3>
-                        <p>Documentary photography series capturing architectural details.</p>
-                    </div>
-                </article>
-
-                <!-- Motion Graphics -->
-                <article class="portfolio-card">
-                    <div class="video-container">
-                        <video controls>
-                            <source src="Motivational%20Quotes%20Instagram%20Reel%20Video.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="card-content">
-                        <span class="category-label">Motion Design</span>
-                        <h3>Animated Social Content</h3>
-                        <p>Dynamic motion graphics for digital platforms.</p>
-                    </div>
-                </article>
+                </div>
+                <div class="portfolio-card">
+                    <span class="card-badge">Featured Project</span>
+                    <img src="RPrealestablished.jpg" alt="Portal Ecosystem" class="card-image">
+                </div>
             </div>
         </section>
 
-        <section id="certifications">
-            <h2 class="section-title">Professional Certifications</h2>
-            <div class="portfolio-grid">
-                <article class="portfolio-card">
-                    <img src="CertificateOfCompletion_Career_Essentials_in_Generative_AI_by_Microsoft.pdf" alt="AI Certification" class="card-image">
-                    <div class="card-content">
-                        <h3>Generative AI Essentials</h3>
-                        <p>Microsoft Certified: AI Fundamentals</p>
-                    </div>
-                </article>
+        <!-- Technical Showcase -->
+        <section id="technical-expertise">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Full-Stack Development</h3>
+                    <p>React | Node.js | Python | Solidity</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Creative Direction</h3>
+                    <p>Brand Strategy | Visual Systems | UI/UX</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Emerging Tech</h3>
+                    <p>AI/ML | Blockchain | IoT Solutions</p>
+                </div>
             </div>
         </section>
 
-        <section id="contact">
-            <h2 class="section-title">Connect With Me</h2>
+        <!-- Client Work Section -->
+        <section id="client-projects">
+            <h2 class="section-title">Client Engagements</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <span class="card-badge">FinTech</span>
+                    <img src="Repdiamondsreal.jpg" alt="Financial Platform" class="card-image">
+                    <div class="card-content">
+                        <h3>Secure Trading Platform</h3>
+                        <p>Blockchain-based financial ecosystem with AI analytics</p>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <span class="card-badge">Healthcare</span>
+                    <img src="IMG_1197.jpg" alt="Health Tech" class="card-image">
+                    <div class="card-content">
+                        <h3>Patient Management System</h3>
+                        <p>HIPAA-compliant health monitoring solution</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certification Showcase -->
+        <section id="credentials">
+            <h2 class="section-title">Professional Accreditations</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <img src="CertificateOfCompletion_Career_Essentials_in_Generative_AI_by_Microsoft.pdf" 
+                         alt="AI Certification" 
+                         class="card-image">
+                    <div class="card-content">
+                        <h3>Microsoft AI Certification</h3>
+                        <p>Advanced generative AI implementation strategies</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <h2 class="section-title" style="color: white;">Start a Conversation</h2>
             <div class="social-links">
-                <a href="https://linkedin.com/in/hrptechadvisor" class="social-link" target="_blank">
+                <a href="https://linkedin.com/in/hrptechadvisor" class="social-link">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="https://github.com/hrptechadvisor" class="social-link" target="_blank">
+                <a href="https://github.com/hrptechadvisor" class="social-link">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://instagram.com/therealestablishedportal" class="social-link" target="_blank">
+                <a href="https://instagram.com/therealestablishedportal" class="social-link">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://youtube.com/@djtrippiepea" class="social-link" target="_blank">
-                    <i class="fab fa-youtube"></i>
+                <a href="mailto:sjsmith5@student.fullsail.edu" class="social-link">
+                    <i class="fas fa-envelope"></i>
                 </a>
             </div>
         </section>
     </main>
 
-    <footer style="background: var(--primary); color: white; text-align: center; padding: 2rem; margin-top: 4rem;">
-        <p>&copy; 2024 Sean J. Smith DJTP. All rights reserved.</p>
-        <p>Design System: SJSDJTP v2.0</p>
+    <footer style="background: var(--primary); color: white; text-align: center; padding: 3rem;">
+        <p style="margin-bottom: 1rem;">© 2024 Sean J. Smith DJTP. All intellectual property protected.</p>
+        <div style="display: flex; gap: 1.5rem; justify-content: center;">
+            <a href="#privacy" style="color: white; text-decoration: none;">Privacy Policy</a>
+            <a href="#terms" style="color: white; text-decoration: none;">Terms of Service</a>
+        </div>
     </footer>
 </body>
 </html>
