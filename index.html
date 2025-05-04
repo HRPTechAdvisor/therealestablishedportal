@@ -1,374 +1,159 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sean J. Smith DJTP - Full Spectrum Creative Technologist">
-    <title>Sean J. Smith DJTP | Creative Director & Technologist</title>
+    <title>Sean J. Smith DJTP - Complete Portfolio</title>
     <base href="https://hrptechadvisor.github.io/therealestablishedportal/">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #1A1A1A;
-            --secondary: #FFFFFF;
-            --accent: #0077B6;
-            --highlight: #00B4D8;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            --primary: #2d2d2d;
+            --secondary: #f5f5f5;
         }
 
         body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
             background: var(--secondary);
-            color: var(--primary);
-            line-height: 1.7;
         }
 
-        /* Enhanced Header */
-        .header {
-            background: rgba(255, 255, 255, 0.98);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .nav-container {
-            max-width: 1400px;
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
         }
 
-        .nav-logo {
-            font-weight: 700;
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 1.8rem;
-            letter-spacing: -0.5px;
-        }
-
-        /* Main Content Structure */
-        .main-container {
-            max-width: 1400px;
-            margin: 100px auto 0;
-            padding: 0 2rem;
-        }
-
-        /* Hero Section */
-        .hero-section {
+        h1 {
+            color: var(--primary);
             text-align: center;
-            padding: 8rem 0 6rem;
-            background: linear-gradient(rgba(255,255,255,0.97), rgba(255,255,255,0.97)), 
-                        url('recordback.jpg');
-            background-size: cover;
-            margin-bottom: 4rem;
+            margin: 40px 0;
         }
 
-        .hero-title {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-            line-height: 1.2;
-        }
-
-        .hero-subtitle {
-            font-size: 1.4rem;
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* Portfolio Grid Enhancements */
-        .portfolio-grid {
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            padding: 3rem 0;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
         }
 
-        .portfolio-card {
-            background: var(--secondary);
-            border-radius: 16px;
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             overflow: hidden;
-            transition: var(--transition);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-            position: relative;
         }
 
-        .portfolio-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        .card img, .card video {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--primary);
         }
 
-        .card-badge {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: var(--accent);
-            color: white;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            z-index: 2;
+        .card-content {
+            padding: 15px;
         }
 
-        /* Detailed Project Sections */
-        .project-showcase {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            padding: 4rem 0;
-        }
-
-        .project-details {
-            padding: 2rem;
-            background: rgba(245, 245, 245, 0.6);
-            border-radius: 12px;
-        }
-
-        .project-meta {
-            display: flex;
-            gap: 2rem;
-            margin: 1.5rem 0;
-        }
-
-        .meta-item {
-            text-align: center;
-        }
-
-        .meta-value {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--accent);
-        }
-
-        /* Skills Matrix */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
-            padding: 2rem 0;
-        }
-
-        .skill-card {
-            padding: 2rem;
-            background: white;
-            border-radius: 12px;
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        .skill-card:hover {
-            background: var(--accent);
-            color: white;
-        }
-
-        /* Testimonial Section */
-        .testimonial-carousel {
-            display: grid;
-            gap: 2rem;
-            padding: 4rem 0;
-        }
-
-        .testimonial-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 16px;
-            position: relative;
-        }
-
-        .testimonial-quote {
-            font-size: 1.1rem;
-            color: #444;
-            line-height: 1.8;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: var(--primary);
-            color: white;
-            padding: 6rem 2rem;
-            margin-top: 6rem;
-            border-radius: 24px;
-            text-align: center;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .social-link {
-            color: white;
-            font-size: 1.8rem;
-            transition: var(--transition);
-        }
-
-        .social-link:hover {
-            color: var(--highlight);
-            transform: translateY(-3px);
-        }
-
-        @media (max-width: 1024px) {
-            .project-showcase {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-title {
-                font-size: 2.8rem;
-            }
+        .file-name {
+            font-size: 0.9em;
+            color: #666;
+            word-break: break-all;
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <nav class="nav-container">
-            <a href="#" class="nav-logo">SJSDJTP</a>
-            <div class="nav-links">
-                <a href="#work" class="nav-link">Work</a>
-                <a href="#process" class="nav-link">Process</a>
-                <a href="#clients" class="nav-link">Clients</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
-        </nav>
-    </header>
-
-    <main class="main-container">
-        <section class="hero-section">
-            <h1 class="hero-title">Digital Innovation Meets Strategic Design</h1>
-            <p class="hero-subtitle">Bridging technical excellence with creative vision across multiple disciplines</p>
-        </section>
-
-        <!-- Featured Project Showcase -->
-        <section id="featured-project">
-            <div class="project-showcase">
-                <div class="project-details">
-                    <h2 class="section-title">Flagship Project: The Portal Ecosystem</h2>
-                    <div class="project-meta">
-                        <div class="meta-item">
-                            <div class="meta-value">12+</div>
-                            <div class="meta-label">Integrated Features</div>
-                        </div>
-                        <div class="meta-item">
-                            <div class="meta-value">98%</div>
-                            <div class="meta-label">User Satisfaction</div>
-                        </div>
-                    </div>
-                    <p>Comprehensive digital ecosystem combining AI-driven analytics with user-centric design principles.</p>
-                    <div class="skills-grid" style="margin-top: 2rem;">
-                        <div class="skill-card">
-                            <i class="fas fa-brain fa-2x"></i>
-                            <h3>AI Integration</h3>
-                        </div>
-                        <div class="skill-card">
-                            <i class="fas fa-shield-alt fa-2x"></i>
-                            <h3>Blockchain Security</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-card">
-                    <span class="card-badge">Featured Project</span>
-                    <img src="RPrealestablished.jpg" alt="Portal Ecosystem" class="card-image">
+    <div class="container">
+        <h1>Complete Portfolio Archive</h1>
+        
+        <!-- Image Gallery -->
+        <div class="grid">
+            <!-- REP Branding Images -->
+            <div class="card">
+                <img src="RPrealestablished.jpg" alt="REP Main Logo">
+                <div class="card-content">
+                    <div class="file-name">RPrealestablished.jpg</div>
                 </div>
             </div>
-        </section>
 
-        <!-- Technical Showcase -->
-        <section id="technical-expertise">
-            <h2 class="section-title">Core Competencies</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>Full-Stack Development</h3>
-                    <p>React | Node.js | Python | Solidity</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Creative Direction</h3>
-                    <p>Brand Strategy | Visual Systems | UI/UX</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Emerging Tech</h3>
-                    <p>AI/ML | Blockchain | IoT Solutions</p>
+            <div class="card">
+                <img src="Repdiamondsreal.jpg" alt="Diamond Design">
+                <div class="card-content">
+                    <div class="file-name">Repdiamondsreal.jpg</div>
                 </div>
             </div>
-        </section>
 
-        <!-- Client Work Section -->
-        <section id="client-projects">
-            <h2 class="section-title">Client Engagements</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-card">
-                    <span class="card-badge">FinTech</span>
-                    <img src="Repdiamondsreal.jpg" alt="Financial Platform" class="card-image">
-                    <div class="card-content">
-                        <h3>Secure Trading Platform</h3>
-                        <p>Blockchain-based financial ecosystem with AI analytics</p>
-                    </div>
-                </div>
-                <div class="portfolio-card">
-                    <span class="card-badge">Healthcare</span>
-                    <img src="IMG_1197.jpg" alt="Health Tech" class="card-image">
-                    <div class="card-content">
-                        <h3>Patient Management System</h3>
-                        <p>HIPAA-compliant health monitoring solution</p>
-                    </div>
+            <!-- Add all other images following the same pattern -->
+            <div class="card">
+                <img src="business%20rep.jpg" alt="Business Branding">
+                <div class="card-content">
+                    <div class="file-name">business rep.jpg</div>
                 </div>
             </div>
-        </section>
 
-        <!-- Certification Showcase -->
-        <section id="credentials">
-            <h2 class="section-title">Professional Accreditations</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-card">
-                    <img src="CertificateOfCompletion_Career_Essentials_in_Generative_AI_by_Microsoft.pdf" 
-                         alt="AI Certification" 
-                         class="card-image">
-                    <div class="card-content">
-                        <h3>Microsoft AI Certification</h3>
-                        <p>Advanced generative AI implementation strategies</p>
-                    </div>
+            <div class="card">
+                <img src="realestablishedportalRealEstateLogo.jpg" alt="Real Estate Logo">
+                <div class="card-content">
+                    <div class="file-name">realestablishedportalRealEstateLogo.jpg</div>
                 </div>
             </div>
-        </section>
 
-        <!-- Contact Section -->
-        <section class="contact-section">
-            <h2 class="section-title" style="color: white;">Start a Conversation</h2>
-            <div class="social-links">
-                <a href="https://linkedin.com/in/hrptechadvisor" class="social-link">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/hrptechadvisor" class="social-link">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://instagram.com/therealestablishedportal" class="social-link">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="mailto:sjsmith5@student.fullsail.edu" class="social-link">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
-        </section>
-    </main>
-
-    <footer style="background: var(--primary); color: white; text-align: center; padding: 3rem;">
-        <p style="margin-bottom: 1rem;">© 2024 Sean J. Smith DJTP. All intellectual property protected.</p>
-        <div style="display: flex; gap: 1.5rem; justify-content: center;">
-            <a href="#privacy" style="color: white; text-decoration: none;">Privacy Policy</a>
-            <a href="#terms" style="color: white; text-decoration: none;">Terms of Service</a>
+            <!-- Continue adding all image files -->
         </div>
-    </footer>
+
+        <!-- Video Gallery -->
+        <h2>Video Content</h2>
+        <div class="grid">
+            <div class="card">
+                <video controls>
+                    <source src="Motivational%20Quotes%20Instagram%20Reel%20Video.mp4" type="video/mp4">
+                </video>
+                <div class="card-content">
+                    <div class="file-name">Motivational Quotes Instagram Reel Video.mp4</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <video controls>
+                    <source src="Trippie%20Pea%20Official%20ADD.mp4" type="video/mp4">
+                </video>
+                <div class="card-content">
+                    <div class="file-name">Trippie Pea Official ADD.mp4</div>
+                </div>
+            </div>
+
+            <!-- Add all other video files -->
+        </div>
+
+        <!-- Documents Section -->
+        <h2>Certifications & Documents</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="CertificateOfCompletion_Career_Essentials_in_Generative_AI_by_Microsoft.pdf" 
+                     alt="AI Certification">
+                <div class="card-content">
+                    <div class="file-name">Microsoft AI Certification.pdf</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Assets -->
+        <h2>Supporting Assets</h2>
+        <div class="grid">
+            <!-- Add remaining files using appropriate tags -->
+            <div class="card">
+                <img src="flower....jpg" alt="Floral Design">
+                <div class="card-content">
+                    <div class="file-name">flower....jpg</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="repdiamondsbusiness.jpg" alt="Business Diamond">
+                <div class="card-content">
+                    <div class="file-name">repdiamondsbusiness.jpg</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
