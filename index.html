@@ -3,230 +3,283 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sean J. Smith DJTP | Complete Portfolio</title>
+    <meta name="description" content="Professional portfolio of Sean J. Smith DJTP - Creative Technologist & Digital Designer">
+    <meta property="og:title" content="Sean J. Smith DJTP | Creative Technologist">
+    <meta property="og:description" content="Innovative digital solutions merging technology and design">
+    <meta property="og:image" content="RPrealestablished.jpg">
+    <title>Sean J. Smith DJTP | Creative Technologist</title>
     <base href="https://hrptechadvisor.github.io/therealestablishedportal/">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #00ffcc;
-            --secondary: #ff00aa;
-            --dark: #111;
-            --light: #fff;
+            --primary: #2A2A2A;
+            --secondary: #F5F5F5;
+            --accent: #00B4D8;
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background: var(--dark);
-            color: var(--light);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--secondary);
+            color: var(--primary);
+            line-height: 1.6;
         }
 
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1rem;
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        .main-container {
+            max-width: 1400px;
+            margin: 80px auto 0;
             padding: 2rem;
         }
 
-        .gallery img, .gallery video {
-            width: 100%;
-            height: auto;
-            border: 2px solid var(--primary);
-            border-radius: 8px;
-            transition: transform 0.3s ease;
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('recordback.jpg');
+            background-size: cover;
+            margin-bottom: 3rem;
         }
 
-        .gallery img:hover, .gallery video:hover {
-            transform: scale(1.03);
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
         }
 
-        .embed-container {
-            margin: 2rem;
-            border: 1px solid var(--primary);
+        .portfolio-card {
+            background: white;
             border-radius: 12px;
             overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .section {
-            padding: 2rem;
-            border-bottom: 3px solid var(--secondary);
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
 
-        h1, h2 {
+        .card-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .category-label {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
             color: var(--primary);
             text-align: center;
-            padding: 1rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .social-link {
+            color: var(--primary);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Sean J. Smith DJTP Portfolio</h1>
-
-    <!-- Figma Embeds -->
-    <div class="section">
-        <h2>Figma Designs</h2>
-        <div class="embed-container">
-            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1)" 
-                    width="100%" 
-                    height="600" 
-                    src="https://embed.figma.com/slides/V1CDH3NwonnFw1kGaFgB3t/Template-for-Pitch-Deck--Copy-?node-id=1-271&embed-host=share" 
-                    allowfullscreen>
-            </iframe>
-        </div>
-
-        <div class="embed-container">
-            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1)" 
-                    width="100%" 
-                    height="600" 
-                    src="https://embed.figma.com/design/n2Sm9fLuUyeFIwe4EsHfmr/Beautify--Community-?node-id=0-1&embed-host=share" 
-                    allowfullscreen>
-            </iframe>
-        </div>
-    </div>
-
-    <!-- Canva Embed -->
-    <div class="section">
-        <h2>Canva Presentations</h2>
-        <div class="embed-container">
-            <div style="position: relative; width: 100%; height: 0; padding-top: 133.3333%;">
-                <iframe loading="lazy" 
-                        style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" 
-                        src="https://www.canva.com/design/DAFUSIOdm90/NVF_eo2J7HMoBNNuIOm70Q/view?embed" 
-                        allowfullscreen>
-                </iframe>
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="nav-logo">SJSDJTP</a>
+            <div class="nav-links">
+                <a href="#work" class="nav-link">Work</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </div>
-        </div>
-    </div>
+        </nav>
+    </header>
 
-    <!-- Image Gallery -->
-    <div class="section">
-        <h2>Design Assets</h2>
-        <div class="gallery">
-            <img src="716C2369-EE8A-4A73-A117-485AE7046C46_1_201_a.jpg" alt="Design 1">
-            <img src="AAF-1Cbbs4M_1733953449451.png" alt="Design 2">
-            <img src="Bumper%20Video%20Title.jpg" alt="Video Title">
-            <img src="Creating%20Your%20Personal%20Brand%20LinkedIn%20Learning%20Certificat%20Of%20Completion.png" alt="Certification">
-            <img src="Designer.jpg" alt="Designer">
-            <img src="IMG_1197.jpg" alt="Photo 1">
-            <img src="Keeping%20your%20family%20Safe.%20A%20family%20tradition%20that%20keeps%20on%20going!.jpg" alt="Family Safety">
-            <img src="Magazine%20cover_Proxy.png" alt="Magazine Cover">
-            <img src="photo_5062598267170303398_y.jpg" alt="Photo 2">
-            <img src="practice_image_302.png" alt="Practice 1">
-            <img src="practice_image_303.png" alt="Practice 2">
-            <img src="practice_image_307.jpg" alt="Practice 3">
-            <img src="Screen%20Shot%202023-03-12%20at%208.43.40%20PM.png" alt="Screenshot">
-            <img src="Tenacity.png" alt="Tenacity">
-            <img src="Untitled%20design.png11.png" alt="Untitled Design">
-            <img src="business%20rep.jpg" alt="Business Rep">
-            <img src="businessrep.jpg" alt="Business Rep 2">
-            <img src="cartoonrepdiaomnds.jpg" alt="Cartoon Diamond">
-            <img src="diamondcompanyrep.jpg" alt="Diamond Company">
-            <img src="diamondcompanyrep2.jpg" alt="Diamond Company 2">
-            <img src="diamondsrep.jpg" alt="Diamonds Rep">
-            <img src="diamondsrepreal.jpg" alt="Diamonds Real">
-            <img src="diamondswaterlogoreap.jpg" alt="Water Diamond">
-            <img src="flower....jpg" alt="Flower 1">
-            <img src="flower..jpg" alt="Flower 2">
-            <img src="flower.jpg" alt="Flower 3">
-            <img src="flowerll.jpg" alt="Flower 4">
-            <img src="flowerr.jpg" alt="Flower 5">
-            <img src="FlowerReal%20established.jpg" alt="Established Flower">
-            <img src="me.jpg" alt="Profile">
-            <img src="minrep.jpg" alt="Minimal Rep">
-            <img src="real.jpg" alt="Real Logo">
-            <img src="realestabdiampnd.jpg" alt="Established Diamond">
-            <img src="realestablishedportalRealEstateLogo.jpg" alt="Real Estate Logo">
-            <img src="realrepdiamond.jpg" alt="Diamond Logo">
-            <img src="realwithportriat.jpg" alt="Portrait Logo">
-            <img src="recordback.jpg" alt="Record Back">
-            <img src="rep.jpg" alt="Rep Logo">
-            <img src="rep1.jpg" alt="Rep Logo 2">
-            <img src="repbusinees.jpg" alt="Business Rep 3">
-            <img src="repcartoon.jpg" alt="Cartoon Rep">
-            <img src="repd.jpg" alt="Rep D">
-            <img src="repdiamgreat.jpg" alt="Great Diamond">
-            <img src="repdiamnd.jpg" alt="Diamond Concept">
-            <img src="repdiamond.jpg" alt="Diamond Rep">
-            <img src="repdiamond2.jpg" alt="Diamond Rep 2">
-            <img src="RepDiamondcolor.jpg" alt="Color Diamond">
-            <img src="repdiamondreal.jpg" alt="Real Diamond">
-            <img src="repdiamonds.jpg" alt="Diamonds">
-            <img src="repdiamondsbusiness.jpg" alt="Business Diamonds">
-            <img src="Repdiamondsreal.jpg" alt="Real Diamonds">
-            <img src="repdiamons.jpg" alt="Diamonds 2">
-            <img src="reportriat2.jpg" alt="Portrait 2">
-            <img src="replogo.jpg" alt="Main Logo">
-            <img src="replogodiamonds.jpg" alt="Logo Diamonds">
-            <img src="repportaldiamond.jpg" alt="Portal Diamond">
-            <img src="repportrait.jpg" alt="Portrait 3">
-            <img src="Reprealdiamn.jpg" alt="Real Diamond 2">
-            <img src="RepRealEstabl.png" alt="Established Logo">
-            <img src="repposter.png" alt="Poster">
-            <img src="repss.jpg" alt="SS Logo">
-            <img src="RPrealestablished.jpg" alt="RP Established">
-        </div>
-    </div>
+    <main class="main-container">
+        <section class="hero">
+            <h1>Creative Technology Solutions</h1>
+            <p>Bridging design innovation with technical excellence</p>
+        </section>
 
-    <!-- Video Gallery -->
-    <div class="section">
-        <h2>Video Portfolio</h2>
-        <div class="gallery">
-            <video controls>
-                <source src="document_5181506085571265683.mp4" type="video/mp4">
-            </video>
-            <video controls>
-                <source src="Motivational%20Quotes%20Instagram%20Reel%20Video.mp4" type="video/mp4">
-            </video>
-            <video controls>
-                <source src="Qaulitative.mp4" type="video/mp4">
-            </video>
-            <video controls>
-                <source src="Trippie%20Pea%20Official%20ADD.mp4" type="video/mp4">
-            </video>
-            <video controls>
-                <source src="Untitled%20design.mp4" type="video/mp4">
-            </video>
-            <video controls>
-                <source src="Untitled%20design2.mp4" type="video/mp4">
-            </video>
-            <video controls>
-                <source src="Untitled%20design3.mp4" type="video/mp4">
-            </video>
-            <video controls>
-                <source src="Untitled%20design4.mp4" type="video/mp4">
-            </video>
-            <video controls>
-                <source src="Untitled%20design6.mp4" type="video/mp4">
-            </video>
-            <video controls>
-                <source src="Untitled%20design7.mp4" type="video/mp4">
-            </video>
-            <video controls>
-                <source src="Untitled%20design8.mp4" type="video/mp4">
-            </video>
-        </div>
-    </div>
+        <section id="work">
+            <h2 class="section-title">Featured Work</h2>
+            
+            <div class="portfolio-grid">
+                <!-- Branding Section -->
+                <article class="portfolio-card">
+                    <img src="RPrealestablished.jpg" alt="Brand Identity" class="card-image">
+                    <div class="card-content">
+                        <span class="category-label">Brand Identity</span>
+                        <h3>Established Portal Visual System</h3>
+                        <p>Comprehensive branding package including logo development, color theory, and typography systems.</p>
+                    </div>
+                </article>
 
-    <!-- Certificates -->
-    <div class="section">
-        <h2>Certifications</h2>
-        <div class="gallery">
-            <img src="Creating%20Your%20Personal%20Brand%20LinkedIn%20Learning%20Certificat%20Of%20Completion.png" alt="Brand Certification">
-        </div>
-    </div>
+                <!-- Digital Art -->
+                <article class="portfolio-card">
+                    <img src="Repdiamondsreal.jpg" alt="Digital Art" class="card-image">
+                    <div class="card-content">
+                        <span class="category-label">Digital Art</span>
+                        <h3>Geometric Abstraction Series</h3>
+                        <p>Exploration of form and color through digital illustration techniques.</p>
+                    </div>
+                </article>
 
-    <!-- Instagram Embeds -->
-    <div class="section">
-        <h2>Social Media Content</h2>
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DDKuoZSyHlo/"></blockquote>
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DB8dGXXIiVg/"></blockquote>
-      
-     
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/CpIrBTRDWvd/"></blockquote>
-      
-        
-    </div>
+                <!-- Photography -->
+                <article class="portfolio-card">
+                    <img src="IMG_1197.jpg" alt="Photography" class="card-image">
+                    <div class="card-content">
+                        <span class="category-label">Photography</span>
+                        <h3>Urban Landscape Studies</h3>
+                        <p>Documentary photography series capturing architectural details.</p>
+                    </div>
+                </article>
 
-    <script async src="//www.instagram.com/embed.js"></script>
+                <!-- Motion Graphics -->
+                <article class="portfolio-card">
+                    <div class="video-container">
+                        <video controls>
+                            <source src="Motivational%20Quotes%20Instagram%20Reel%20Video.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="card-content">
+                        <span class="category-label">Motion Design</span>
+                        <h3>Animated Social Content</h3>
+                        <p>Dynamic motion graphics for digital platforms.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="certifications">
+            <h2 class="section-title">Professional Certifications</h2>
+            <div class="portfolio-grid">
+                <article class="portfolio-card">
+                    <img src="CertificateOfCompletion_Career_Essentials_in_Generative_AI_by_Microsoft.pdf" alt="AI Certification" class="card-image">
+                    <div class="card-content">
+                        <h3>Generative AI Essentials</h3>
+                        <p>Microsoft Certified: AI Fundamentals</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Connect With Me</h2>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/hrptechadvisor" class="social-link" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/hrptechadvisor" class="social-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://instagram.com/therealestablishedportal" class="social-link" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://youtube.com/@djtrippiepea" class="social-link" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer style="background: var(--primary); color: white; text-align: center; padding: 2rem; margin-top: 4rem;">
+        <p>&copy; 2024 Sean J. Smith DJTP. All rights reserved.</p>
+        <p>Design System: SJSDJTP v2.0</p>
+    </footer>
 </body>
 </html>
